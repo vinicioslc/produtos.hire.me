@@ -1,16 +1,15 @@
 # hire.me
 
-THE WORLD’S LEADING APPS SUBSCRIPTION SERVICE
 
 ## Aí você teve uma ideia...
 
 Imagine que você conseguiu: 
 
-* uma parceria com os principais desenvolvedores de apps Android do mundo. 
+* uma parceria com grandes lojas internacionais online de venda de produtos.
 * uma parceria com as grandes operadoras de telefonia do planeta.
-* milhões de assinantes dispostos a pagar uma assinatura para utilizar um monte de apps bacanas.
+* milhões de assinantes dispostos a pagar uma assinatura para utilizar conseguir comprar produtos com bons descontos.
 
-Com isso, você decide criar o Apps Club: um serviço de assinatura, onde o usuário paga um pequeno valor recorrente para utilizar centenas de apps que, se comprados individualmente, custariam milhares e milhares de reais. O assinante paga o valor direto na conta de telefone da operadora, sem precisar de cartão de crédito.
+Com isso, você decide criar o Clube de descontos: um serviço de assinatura, onde o usuário paga um pequeno valor recorrente para ter acesso a centenas de descontos que, se comprados individualmente, custariam um valor muito maior do que a assinatura no serviço de descontos. O assinante paga o valor direto na conta de telefone da operadora, sem precisar de cartão de crédito.
 
 Acho que você teve uma boa ideia, hein? =)
 
@@ -18,19 +17,19 @@ Acho que você teve uma boa ideia, hein? =)
 
 Ok, deu pra ver que você é fera nos negócios, mas chegou a hora de programar!
 
-Serão várias aplicações-cliente, uma por operadora, acessando uma API que lista os apps disponíveis para download.
+Serão várias aplicações-cliente (sites ou apps), uma por operadora, acessando uma API que exibe as lojas e os descontos.
 
 Simples assim? Quase... 
 
 Aí vão algumas considerações:
 
-* Desenvolvedores podem já possuir contratos de exclusividade com outros distribuidores em determinados países, portanto, nem todos os apps vão estar disponíveis em todos os territórios.
-* Você decidiu separar o conteúdo em 3 ofertas diferentes para atrair públicos distintos, como crianças ou viciados em games. Logo, o cliente de uma operadora pode escolher entre 3 pacotes de apps independentes: apps, games ou kids.
-* As aplicação-cliente das operadoras devem ser totalmente isoladas entre si e personificar uma oferta (apps/games/kids) dentro de uma operadora.
+* Cada operadora tem seus descontos exclusivos. Por isso, cada loja pode exibir descontos diferentes.
+* Cada operadora pode ser separada por path. Exemplo: http://localhost:8080/claro, http://localhost:8080/vivo, etc
+
 
 ## Requisitos
 
-Ao abrir a página, o usuário deve visualizar uma listagem com os apps disponíveis para download. Ao clicar num item da listagem, o usuário deve visualizar a tela de detalhes do app em questão.
+Ao abrir a página, o usuário deve visualizar uma listagem com os descontos disponíveis por operadora (e também suas marcas). Ao clicar num item da listagem, o usuário deve visualizar a tela de detalhes da oferta em questão.
 
 backend:
 
