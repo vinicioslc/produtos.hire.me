@@ -1,4 +1,4 @@
-# appsclub.hire.me
+# hire.me
 
 THE WORLD’S LEADING APPS SUBSCRIPTION SERVICE
 
@@ -16,9 +16,7 @@ Acho que você teve uma boa ideia, hein? =)
 
 ## Mãos à obra
 
-Ok, deu pra ver que você é fera nos negócios, mas chegou a hora de programar! Eis uma visão geral da arquitetura que precisaremos desenvolver:
-
-![Diagram](diagram.png)
+Ok, deu pra ver que você é fera nos negócios, mas chegou a hora de programar!
 
 Serão várias aplicações-cliente, uma por operadora, acessando uma API que lista os apps disponíveis para download.
 
@@ -30,21 +28,20 @@ Aí vão algumas considerações:
 * Você decidiu separar o conteúdo em 3 ofertas diferentes para atrair públicos distintos, como crianças ou viciados em games. Logo, o cliente de uma operadora pode escolher entre 3 pacotes de apps independentes: apps, games ou kids.
 * As aplicação-cliente das operadoras devem ser totalmente isoladas entre si e personificar uma oferta (apps/games/kids) dentro de uma operadora.
 
-## Para backend developers
+## Requisitos
 
-Você não precisa criar uma aplicação-cliente para a sua API, mas ela deve ser capaz de identificar quem está solicitando o conteúdo e responder de maneira adequada para cada solicitante.
+Ao abrir a página, o usuário deve visualizar uma listagem com os apps disponíveis para download. Ao clicar num item da listagem, o usuário deve visualizar a tela de detalhes do app em questão.
 
-O paradigma de banco de dados fica a seu gosto: SQL ou NoSQL. A linguagem de programação também (Java, Python, NodeJs, etc), desde que o resultado final seja um boa API.
+backend:
 
-## Para Android developers
+O paradigma de banco de dados fica a seu gosto: SQL ou NoSQL. A linguagem de programação também (Java, Python, NodeJs, Golang, Kotlin, etc), desde que o resultado final seja um boa API.
 
-A boa notícia é que você não precisa criar o backend do zero. Estaremos de olho apenas no seu código Android, então fique à vontade para utilizar um serviço de mock de API (como o [Apiary] (https://apiary.io/), por exemplo) para simular seu backend.
 
-A notícia nem tão boa é que seu projeto **deve** gerar, pelo menos, duas instâncias do nosso produto. Exemplo: operadora1-kids.apk, operadora2-games.apk
+frontend:
 
-Ao abrir o app, o usuário deve visualizar uma listagem com os apps disponíveis para download. Ao clicar num item da listagem, o usuário deve visualizar a tela de detalhes do app em questão. Tudo, é claro, seguindo os princípios do Material Design. Mas isso nem precisava dizer, né? =)
+Você pode criar suas páginas utilizando o framework que quiser. React, vue, angular, etc.
 
-## Para fullstack developers
 
-Vai fazer tudão? Sério? Posso te seguir no Face?
+
+
 
