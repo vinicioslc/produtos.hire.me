@@ -42,7 +42,7 @@ frontend:
 Você pode criar suas páginas utilizando o framework que quiser. React, vue, angular, etc.
 
 
-Pontos importantes:
+## Pontos importantes
 Documentação, diagramas, testes, automatização de ambiente, etc são muito bem vindos e avaliados.
 
 
