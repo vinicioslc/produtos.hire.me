@@ -1,0 +1,18 @@
+# Cria ambiente de teste e roda main.go
+version: "3"
+
+services:
+  app:
+    image: golang:1.10-alpine3.7
+    container_name: go-sandbox
+    volumes:
+      - "../:/go/projects/" # faz bind da pasta de projetos para pasta projects
+    ports:
+      - "80:8080"
+    working_dir: /go/projects/ # define pasta conforme .env na qual ficará o projeto.
+    command: go run main.go # executa o script principal da pasta de teste em go
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+      - "27017:27017"

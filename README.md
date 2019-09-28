@@ -24,7 +24,7 @@ Simples assim? Quase...
 Aí vão algumas considerações:
 
 * Cada operadora tem seus descontos exclusivos. Por isso, cada loja pode exibir descontos diferentes.
-* Cada operadora deve ter uma URL independente e exclusiva. Exemplo: http://localhost:8080/claro, http://localhost:8080/vivo, etc
+* Cada operadora pode ser separada por path. Exemplo: http://localhost:8080/claro, http://localhost:8080/vivo, etc
 
 
 ## Requisitos
