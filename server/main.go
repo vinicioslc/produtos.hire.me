@@ -2,12 +2,12 @@ package main
 
 import (
 	"bemobi-hire/server/api"
-	"bemobi-hire/server/conf"
+	"bemobi-hire/server/config"
 	"fmt"
 )
 
 func main() {
-	apiconfig := conf.LoadAppConfig()
+	apiconfig := config.LoadAppConfig()
 	fmt.Println("RUNING API ON PORT:", apiconfig.AppPort)
 	fmt.Println(apiconfig.AppName, "SERVER - STARTED")
 	// Inicia a API
