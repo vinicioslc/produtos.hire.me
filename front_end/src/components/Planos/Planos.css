@@ -5,38 +5,68 @@
   font-size: calc(15px + 2vmin);
   font-weight: 700;
 }
-
-.card-header {
-  margin-bottom: 20px;
+.dark-bg {
+  background: rgb(88, 31, 138);
+  background: linear-gradient(
+    45deg,
+    rgba(88, 31, 138, 1) 0%,
+    rgba(118, 72, 159, 1) 100%
+  );
+}
+.bright-bg {
+  background: rgb(198, 72, 159);
+  background: linear-gradient(
+    45deg,
+    rgba(198, 72, 159, 1) 0%,
+    rgba(255, 64, 196, 1) 100%
+  );
+}
+.plan-header {
+  border-radius: 10px;
+  margin-left: -10px;
+  padding-top: 10px;
+  margin-top: -20px;
+  margin-right: -10px;
+  padding-bottom: 30px;
+  margin-bottom: -15px;
   font-size: calc(10px + 2vmin);
 }
-.card-container {
-  background-color: #609;
+
+.plan-container > div {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.plan-container {
   border-radius: 10px;
   padding: 10px;
   margin: 1vw;
 
-  -webkit-box-shadow: -16px 4px 55px -20px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: -16px 4px 55px -20px rgba(0, 0, 0, 0.75);
-  box-shadow: -16px 4px 55px -20px rgba(0, 0, 0, 0.75);
+  max-width: 500px;
+  min-height: 250px;
+
+  -webkit-box-shadow: 0px 4px 55px -20px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 4px 55px -20px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 4px 55px -20px rgba(0, 0, 0, 0.75);
 }
-.card-title {
+.plan-title {
   color: white;
   font-weight: 800;
 }
-.card-title-details {
+.plan-title-details {
   display: block;
   color: white;
   font-weight: 400;
   font-size: calc(2px + 2vmin);
 }
-.card-li {
-  display: inline;
+.plan-li {
+  display: inline-table;
+  width: 26vw;
   transition-duration: 0.5s;
   border-radius: 10px;
+  margin-bottom: 5vh;
 }
 
-.card-advantages {
+.plan-advantages {
   background-color: white;
   margin-left: -10px;
   margin-right: -10px;
@@ -47,11 +77,13 @@
 .advantage {
   display: block;
   text-align: left;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
-.card-highlight {
+.plan-highlight {
   color: white;
-  background-color: #76489f;
+  background: #76489f;
   margin-left: -10px;
   margin-right: -10px;
   padding: 2%;
@@ -59,19 +91,46 @@
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
-
-.card-highlight > p {
-  font-size: calc(5px + 2vmin);
-  font-weight: bold;
+.highlights-icon {
+  display: inline;
+  max-width: 30px;
+  max-height: 30px;
+  padding: 5px;
+}
+.plan-highlight.bright-bg {
+  background: #c6489f;
+}
+.plan-highlight > span {
+  font-size: calc(1px + 2vmin);
+  display: block;
+  text-align: left;
+  text-justify: distribute;
+}
+.plan-end-section {
+  margin-top: 2em;
+  display: inline-table;
 }
 
+.plan-small-words {
+  padding-top: 0.5em;
+  font-size: 0.7em;
+}
+
+.plan-tray {
+  margin: 20px;
+}
 /* On screens that are 992px or less, set the background color to blue */
 @media screen and (max-width: 992px) {
-  .card-li {
+  .plan-li {
+    min-width: 400px;
     display: inline-block;
   }
 }
 
 /* On screens that are 600px or less, set the background color to olive */
 @media screen and (max-width: 600px) {
+  .plan-li {
+    margin: 30px;
+    display: inline;
+  }
 }

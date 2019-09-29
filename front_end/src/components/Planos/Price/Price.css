@@ -1,0 +1,26 @@
+.price-box {
+  display: inline;
+  margin: 15px;
+}
+.offer-text {
+  text-align: left;
+}
+.offer-price-cifr {
+  vertical-align: text-top;
+  font-weight: 700;
+  font-size: 1em;
+  position: relative;
+  left: -1%;
+  bottom: 0.5em;
+}
+
+.offer-price-int {
+  font-weight: 700;
+  font-size: 2em;
+}
+
+.offer-price-cent {
+  vertical-align: text-top;
+  font-weight: 700;
+  font-size: 1em;
+}

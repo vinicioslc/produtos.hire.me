@@ -18,6 +18,6 @@ code {
 .white {
   color: white;
 }
-* {
-  color: rgba(0, 0, 0, 0.78);
+.purple-text {
+  color: #609;
 }
