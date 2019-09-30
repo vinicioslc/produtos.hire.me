@@ -2,7 +2,6 @@ package migrations
 
 import (
 	"bemobi-hire/server/models"
-	"fmt"
 
 	migrate "github.com/eminetto/mongo-migrate"
 	"github.com/globalsign/mgo"
@@ -11,9 +10,8 @@ import (
 
 /// Baseado nos exemplos de https://github.com/xakep666/mongo-migrate
 func init() {
-	fmt.Sprintln("ERROR ----")
+	carrier := "claro"
 	migrate.Register(func(db *mgo.Database) error { // uP
-		carrier := "claro"
 		return db.C(plansColl).Insert(
 			models.Plan{
 				ID:          bson.NewObjectId(),
@@ -29,13 +27,6 @@ func init() {
 						"em ligações locais para celulares de outras operadoras",
 					},
 				},
-				PlanHighlights: []models.PlanHighlights{
-					{
-						"whattsicon.png",
-						"WhatsApp Ilimitado",
-						"para mensagens, vídeos e fotos",
-					},
-				},
 				PlanTitle:       "3GB",
 				PlanDetails:     "de internet 4.5G",
 				PlanSmallWords:  "com renovação automática",
@@ -43,7 +34,7 @@ func init() {
 				PlanLimitDays:   15,
 				PlanPrice:       14.990,
 				PlanMoreDetails: models.PlanDetails{
-					Franchise:      "",
+					Franchise:      ``,
 					AdditionalInfo: "",
 					Regulation:     "",
 				},
@@ -51,7 +42,7 @@ func init() {
 			models.Plan{
 				ID:          bson.NewObjectId(),
 				PlanCarrier: carrier,
-				PlanSKU:     "WEB_VIVOTURBO7DIAS1499",
+				PlanSKU:     "WEB_CLARO5GB",
 				PlanAdvantages: []models.PlanAdvantage{
 					{
 						"Ganhe 1GB de bônus, ",
@@ -62,17 +53,10 @@ func init() {
 						"em ligações locais para celulares de outras operadoras",
 					},
 				},
-				PlanHighlights: []models.PlanHighlights{
-					{
-						"https://celular.vivo.com.br/planos/pre/img/whattsicon.png",
-						"WhatsApp Ilimitado",
-						"para mensagens, vídeos e fotos",
-					},
-				},
-				PlanTitle:       "3GB",
-				PlanDetails:     "de internet 4.5G",
-				PlanSmallWords:  "com renovação automática",
-				PlanLimitMbytes: 2000,
+				PlanTitle:       "5GB",
+				PlanDetails:     "de internet 5G",
+				PlanSmallWords:  "sem renovação automática",
+				PlanLimitMbytes: 5000,
 				PlanLimitDays:   7,
 				PlanPrice:       8.990,
 				PlanMoreDetails: models.PlanDetails{
@@ -83,6 +67,9 @@ func init() {
 			},
 		)
 	}, func(db *mgo.Database) error { // dOWN
-		return db.C(plansColl).DropCollection()
+		_, err := db.C(plansColl).RemoveAll(bson.M{
+			"plan_carrier": carrier,
+		})
+		return err
 	})
 }

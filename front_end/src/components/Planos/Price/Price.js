@@ -9,11 +9,12 @@ export default class Price extends Component {
     return navigator.language == "pt-BR" ? "R$" : "$";
   }
   priceUnit() {
-    return this.props.value.toString().split(".")[0];
+    return this.props.price.toString().split(".")[0];
   }
   priceCent() {
-    return this.props.value.toString().split(".")[1];
+    return this.props.price.toString().split(".")[1];
   }
+
   render() {
     return (
       <Fragment>

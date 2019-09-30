@@ -4,10 +4,12 @@ export default class ModalButton extends React.Component {
   state = { show: false };
 
   showModal = () => {
-    this.setState({ show: true });
-    setTimeout(() => {
-      this.setState({ openAnimation: true });
-    }, 100);
+    if (this.props.children) {
+      this.setState({ show: true });
+      setTimeout(() => {
+        this.setState({ openAnimation: true });
+      }, 100);
+    }
   };
 
   hideModal = () => {
@@ -24,18 +26,19 @@ export default class ModalButton extends React.Component {
           show={this.state.show}
           animate={this.state.openAnimation}
           handleClose={this.hideModal}
+          title={this.props.title}
         >
           {this.props.children}
         </Modal>
         <button className="modal-button" type="button" onClick={this.showModal}>
-          {this.props.buttonName}
+          {this.props.button}
         </button>
       </main>
     );
   }
 }
 
-const Modal = ({ handleClose, show, children, animate }) => {
+const Modal = ({ title, handleClose, show, children, animate }) => {
   const showHideClassName = show ? "modal display-block" : "modal display-none";
 
   return (
@@ -45,6 +48,7 @@ const Modal = ({ handleClose, show, children, animate }) => {
           animate ? "animation-open" : "animation-closed"
         }`}
       >
+        {title ? <div>{title}</div> : <Fragment></Fragment>}
         <button className="close-btn purple-text" onClick={handleClose}>
           X
         </button>

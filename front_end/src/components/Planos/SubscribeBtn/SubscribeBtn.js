@@ -4,10 +4,13 @@ export default class Planos extends Component {
   constructor(props) {
     super(props);
   }
+  color() {
+    return this.props.color || "yellow";
+  }
   render() {
     return (
       <Fragment>
-        <button className={`btn yellow`}>Assinar</button>
+        <button className={`btn ${this.color()}`}>{this.props.children}</button>
       </Fragment>
     );
   }

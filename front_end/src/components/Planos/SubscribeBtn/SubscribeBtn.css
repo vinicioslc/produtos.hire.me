@@ -22,3 +22,42 @@
   transform: scale(1.1);
   text-decoration: none;
 }
+
+.btn.blue:hover {
+  animation-duration: 500ms;
+  transition: 0.3s;
+  background: #459fff;
+  transform: scale(1.1);
+  text-decoration: none;
+}
+.btn.blue {
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+  color: #ffffff;
+
+  background: #037bfc;
+  padding: 10px 20px 10px 20px;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.btn.purple:hover {
+  animation-duration: 500ms;
+  transition: 0.3s;
+  background: #c6489f;
+  transform: scale(1.05);
+  text-decoration: none;
+}
+
+.btn.purple {
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+  color: #ffffff;
+
+  background: #76489f;
+  padding: 10px 20px 10px 20px;
+  transition: 0.3s;
+  text-decoration: none;
+}
