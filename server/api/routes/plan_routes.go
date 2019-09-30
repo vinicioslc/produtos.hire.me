@@ -18,7 +18,7 @@ func Plans(config config.AppConfig) *chi.Mux {
 	pdao.Database = config.DBDatabase
 	pdao.Connect()
 	router := chi.NewRouter()
-	router.Get("/{carrier}", GetAllCarrierPlans)
+	router.Get("/{carrier}/plans", GetAllCarrierPlans)
 	return router
 }
 

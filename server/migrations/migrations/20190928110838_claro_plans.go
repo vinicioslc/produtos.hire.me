@@ -13,7 +13,7 @@ import (
 func init() {
 	fmt.Sprintln("ERROR ----")
 	migrate.Register(func(db *mgo.Database) error { // uP
-		carrier := "vivo"
+		carrier := "claro"
 		return db.C(plansColl).Insert(
 			models.Plan{
 				ID:          bson.NewObjectId(),
