@@ -31,7 +31,8 @@
   background: rgba(0, 0, 0, 0.6);
   position: fixed;
   background: white;
-  width: 80%;
+  width: 70%;
+  scroll-behavior: smooth;
   height: auto;
   top: 50%;
   left: 50%;
@@ -51,10 +52,8 @@
 }
 
 .modal-main.animation-closed {
-  animation-duration: 500ms;
-  transition: 0.3s ease-in-out;
-  top: -100px;
-  bottom: -100px;
+  top: 100%;
+  bottom: 100%;
   position: fixed;
 }
 

@@ -15,7 +15,8 @@ func GenerateCors(appConfig config.AppConfig) *cors.Cors {
 		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"},
 		AllowedHeaders:   []string{"Accept", "Authorization", "Content-Type", "X-CSRF-Token"},
 		AllowCredentials: true,
-		MaxAge:           300, // Maximum value not ignored by any of major browsers
+		MaxAge:           300, // Maximum value not ignored by any of major browsers usado em navegadores modernos para cachear requisições
+		Debug:            appConfig.AppIsDebug == "true",
 	})
 
 }

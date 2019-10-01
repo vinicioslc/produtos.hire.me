@@ -4,8 +4,7 @@ export default class Price extends Component {
   constructor(props) {
     super(props);
   }
-  priceCifr() {
-    // TODO adicionar
+  priceSymbol() {
     return navigator.language == "pt-BR" ? "R$" : "$";
   }
   priceUnit() {
@@ -18,8 +17,11 @@ export default class Price extends Component {
   render() {
     return (
       <Fragment>
-        <div className={`price-box offer-text purple-text bold`}>
-          <span className="offer-price-cifr">{this.priceCifr()}</span>
+        <div
+          className={`price-box offer-text primary-text-color bold ${this.props
+            .theme || ""}`}
+        >
+          <span className="offer-price-cifr">{this.priceSymbol()}</span>
           <span className="offer-price-int">{this.priceUnit()}</span>
           <span className="offer-price-cent">
             <span className="offer-price-cent-split">,</span>

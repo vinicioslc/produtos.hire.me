@@ -1,6 +1,6 @@
 import React, { Fragment, Component } from "react";
 
-export default class EmptyContainer extends React.Component {
+export default class EmptyResults extends React.Component {
   constructor(args) {
     super(args);
   }

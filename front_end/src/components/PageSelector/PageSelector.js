@@ -1,5 +1,4 @@
 import React, { Fragment, Component } from "react";
-import Planos from "../Planos/Planos";
 import "./PageSelector.css";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 

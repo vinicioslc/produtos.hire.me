@@ -6,19 +6,19 @@
   font-weight: 700;
 }
 .dark-bg {
-  background: rgb(88, 31, 138);
+  background: rgb(31, 138, 54);
   background: linear-gradient(
     45deg,
-    rgba(88, 31, 138, 1) 0%,
-    rgba(118, 72, 159, 1) 100%
+    rgb(70, 138, 31) 0%,
+    rgb(72, 159, 130) 100%
   );
 }
 .bright-bg {
-  background: rgb(198, 72, 159);
+  background: rgb(72, 198, 198);
   background: linear-gradient(
     45deg,
-    rgba(198, 72, 159, 1) 0%,
-    rgba(255, 64, 196, 1) 100%
+    rgb(72, 198, 160) 0%,
+    rgb(64, 255, 144) 100%
   );
 }
 .plan-header {
@@ -66,6 +66,14 @@
   width: 25vw;
 }
 
+.plan-li::before {
+  content: "\2022"; /* Add content: \2022 is the CSS Code/unicode for a bullet */
+  color: red; /* Change the color */
+  font-weight: bold; /* If you want it to be bold */
+  display: inline-block; /* Needed to add space between the bullet and the text */
+  width: 1em; /* Also needed for space (tweak if needed) */
+  margin-left: -1em; /* Also needed for space (tweak if needed) */
+}
 .plan-advantages {
   background-color: white;
   margin-left: -10px;

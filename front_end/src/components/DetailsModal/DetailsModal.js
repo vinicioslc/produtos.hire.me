@@ -1,6 +1,6 @@
 import React, { Fragment, Component } from "react";
 import "./DetailsModal.css";
-export default class ModalButton extends React.Component {
+export default class DetailsModal extends React.Component {
   state = { show: false };
 
   showModal = () => {
@@ -27,29 +27,34 @@ export default class ModalButton extends React.Component {
           animate={this.state.openAnimation}
           handleClose={this.hideModal}
           title={this.props.title}
+          theme={this.props.theme}
         >
           {this.props.children}
         </Modal>
-        <button className="modal-button" type="button" onClick={this.showModal}>
+        <div className="modal-button" type="button" onClick={this.showModal}>
           {this.props.button}
-        </button>
+        </div>
       </main>
     );
   }
 }
 
-const Modal = ({ title, handleClose, show, children, animate }) => {
+const Modal = ({ title, handleClose, show, children, animate, theme }) => {
   const showHideClassName = show ? "modal display-block" : "modal display-none";
 
   return (
-    <div className={showHideClassName}>
+    <div onClick={handleClose} className={showHideClassName}>
       <section
+        onClick={e => e.stopPropagation()}
         className={`modal-main ${
           animate ? "animation-open" : "animation-closed"
-        }`}
+        } ${theme}`}
       >
         {title ? <div>{title}</div> : <Fragment></Fragment>}
-        <button className="close-btn purple-text" onClick={handleClose}>
+        <button
+          className={`close-btn primary-text-color ${theme}`}
+          onClick={handleClose}
+        >
           X
         </button>
         {children}

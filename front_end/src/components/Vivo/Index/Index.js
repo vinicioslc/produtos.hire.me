@@ -5,17 +5,13 @@ import "./Index.css";
 export default class Index extends Component {
   constructor(props) {
     super(props);
+    this.state = { theme: "vivo" };
   }
 
   render() {
     return (
       <div class="App">
-        <div className="vivo-app">
-          <header className="vivo-header">
-            <a className="vivo-logo"></a>
-          </header>
-          <Planos></Planos>
-        </div>
+        <Planos theme={this.state.theme}></Planos>
       </div>
     );
   }

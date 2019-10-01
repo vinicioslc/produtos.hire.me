@@ -1,8 +1,8 @@
-.vivo-app {
+.app.vivo {
   text-align: center;
 }
 
-.vivo-header {
+.header.vivo {
   background-color: rgb(70, 30, 95);
   min-height: 10vh;
   display: flex;
@@ -13,7 +13,7 @@
   color: white;
 }
 
-.vivo-logo {
+.logo.vivo {
   height: 50px; /* You must set a specified height */
   width: 150px;
   margin: auto;
@@ -23,14 +23,54 @@
   background-image: url(https://celular.vivo.com.br/planos/pre/img/vivo-turbo-header-logo-pre.png);
 }
 
-.App {
-  text-align: center;
+.primary-text-color.vivo {
+  color: #609;
 }
 
-.App-logo {
-  height: 40vmin;
+.dark-bg.vivo {
+  background: rgb(88, 31, 138);
+  background: linear-gradient(
+    45deg,
+    rgba(88, 31, 138, 1) 0%,
+    rgba(118, 72, 159, 1) 100%
+  );
 }
 
-.App-link {
-  color: #09d3ac;
+.bright-bg.vivo {
+  background: rgb(221, 66, 172);
+  background: linear-gradient(
+    45deg,
+    rgb(180, 64, 143) 0%,
+    rgba(255, 64, 196, 1) 100%
+  );
+}
+
+.btn.details.vivo:hover {
+  background: #76489f30;
+}
+
+.btn.details.vivo {
+  color: #76489f;
+  border: 0.05em solid #76489f;
+  background: transparent;
+}
+
+.btn.vivo {
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+  color: #ffffff;
+
+  background: #ffb624;
+  padding: 10px 20px 10px 20px;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.btn.vivo:hover {
+  animation-duration: 500ms;
+  transition: 0.3s;
+  background: #fccc3c;
+  transform: scale(1.1);
+  text-decoration: none;
 }
