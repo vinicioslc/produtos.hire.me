@@ -1,0 +1,36 @@
+.vivo-app {
+  text-align: center;
+}
+
+.vivo-header {
+  background-color: rgb(70, 30, 95);
+  min-height: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.vivo-logo {
+  height: 50px; /* You must set a specified height */
+  width: 150px;
+  margin: auto;
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+  background-image: url(https://celular.vivo.com.br/planos/pre/img/vivo-turbo-header-logo-pre.png);
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-link {
+  color: #09d3ac;
+}

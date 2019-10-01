@@ -4,6 +4,7 @@ import SubscribeBtn from "./SubscribeBtn/SubscribeBtn";
 import DetailsModal from "../DetailsModal/DetailsModal";
 import plansApi from "../../services/plans-api";
 import "./Planos.css";
+import EmptyContainer from "./../EmptyContainer/EmptyContainer";
 export default class Planos extends Component {
   constructor(props) {
     super(props);
@@ -50,7 +51,7 @@ export default class Planos extends Component {
                         </div>
                       </div>
                     ) : (
-                      <Fragment />
+                      <Fragment></Fragment>
                     )}
                     <div className="plan-advantages">
                       {curPlan.plan_advantages.map(advantage => {
@@ -107,7 +108,7 @@ export default class Planos extends Component {
             })}
           </ul>
         ) : (
-          <Fragment />
+          <EmptyContainer></EmptyContainer>
         )}
       </Fragment>
     );

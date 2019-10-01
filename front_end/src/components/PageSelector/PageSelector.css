@@ -1,0 +1,30 @@
+.selector-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-rounded {
+  border-radius: 20px 0px 0px 20px;
+}
+.right-rounded {
+  border-radius: 0px 20px 20px 0px;
+}
+.selector-btn {
+  border: none;
+  padding: 2em 5em;
+  -webkit-box-shadow: 0px 4px 55px -20px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 4px 55px -20px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 4px 55px -20px rgba(0, 0, 0, 0.75);
+}
+
+.selector-btn.vivo {
+  background: #461e5f;
+  color: white;
+}
+
+.selector-btn.claro {
+  background: #e32620;
+  color: white;
+}
