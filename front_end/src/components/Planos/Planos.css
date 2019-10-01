@@ -60,10 +60,10 @@
 }
 .plan-li {
   display: inline-table;
-  width: 26vw;
-  transition-duration: 0.5s;
   border-radius: 10px;
+  transition-duration: 0.5s;
   margin-bottom: 5vh;
+  width: 25vw;
 }
 
 .plan-advantages {
@@ -162,6 +162,9 @@
   .plan-li {
     margin: 30px;
     display: inline;
+  }
+  .plan-container {
+    margin: 4vw;
   }
 }
 
