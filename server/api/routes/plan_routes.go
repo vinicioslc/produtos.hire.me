@@ -19,11 +19,23 @@ func Plans(config config.AppConfig) *chi.Mux {
 	pdao.Connect()
 	router := chi.NewRouter()
 	router.Get("/{carrier}/plans", GetAllCarrierPlans)
+	router.Get("/{carrier}/plans/{sku}/details", GetPlanDetails)
 	return router
 }
 
-// GetAllCarrierPlans Retorna todos os planos da rota plans
+// GetAllCarrierPlans Return all plans from given carrier
 func GetAllCarrierPlans(w http.ResponseWriter, r *http.Request) {
+	carrier := chi.URLParam(r, "carrier")
+
+	plans, err := pdao.ListPlans(carrier)
+	if err != nil {
+		log.Fatal(err.Error())
+	}
+	render.JSON(w, r, plans)
+}
+
+// GetPlanDetails Return Plan Details from given carrier and sku
+func GetPlanDetails(w http.ResponseWriter, r *http.Request) {
 	carrier := chi.URLParam(r, "carrier")
 
 	plans, err := pdao.ListPlans(carrier)

@@ -1,14 +1,15 @@
-import React, { Fragment, Component } from "react";
+import React, { Fragment } from "react";
 
 import plansApi from "../../../services/plans-api";
 import PlanCard from "../PlanCard/PlanCard";
+import ThemmedComponent from "../../Base/ThemmedComponent";
 import "./Plans.css";
 import EmptyResults from "../EmptyResults/EmptyResults";
-export default class Plans extends Component {
+export default class Plans extends ThemmedComponent {
   constructor(props) {
     super(props);
     this.state = {};
-    plansApi.getPlans(this.props.theme).then(plans => {
+    plansApi.getPlans(this.getTheme()).then(plans => {
       console.log("FETCHED ", plans);
       this.setState({
         plans: plans
@@ -21,7 +22,7 @@ export default class Plans extends Component {
       <Fragment>
         <div className={`app ${this.props.theme}`}>
           <header className={`header ${this.props.theme}`}>
-            <a className={`logo ${this.props.theme}`}></a>
+            <figure className={`logo ${this.props.theme}`}></figure>
           </header>
           <h1 className={`offer-title ${this.props.theme}`}>
             Ofertas feitas para você
@@ -35,7 +36,7 @@ export default class Plans extends Component {
               ></PlansList>
             </ul>
           ) : (
-            <EmptyResults></EmptyResults>
+            <EmptyResults theme={this.getTheme()}></EmptyResults>
           )}
         </div>
       </Fragment>
@@ -45,7 +46,7 @@ export default class Plans extends Component {
 
 const PlansList = ({ plans, customClass, theme }) => {
   return plans.map((curPlan, index) => {
-    let isPair = (index & 1) == 0;
+    let isPair = (index & 1) === 0;
     return (
       <PlanCard
         curPlan={curPlan}

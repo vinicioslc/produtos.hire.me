@@ -1,4 +1,4 @@
-import React, { Fragment, Component } from "react";
+import React, { Fragment } from "react";
 import "./DetailsModal.css";
 export default class DetailsModal extends React.Component {
   state = { show: false };
@@ -50,7 +50,13 @@ const Modal = ({ title, handleClose, show, children, animate, theme }) => {
           animate ? "animation-open" : "animation-closed"
         } ${theme}`}
       >
-        {title ? <div>{title}</div> : <Fragment></Fragment>}
+        {title ? (
+          <div>
+            <div className={`modal-title ${theme}`}>{title}</div>
+          </div>
+        ) : (
+          <Fragment></Fragment>
+        )}
         <button
           className={`close-btn primary-text-color ${theme}`}
           onClick={handleClose}

@@ -1,4 +1,4 @@
-import React, { Fragment, Component } from "react";
+import React, { Component } from "react";
 import Plans from "../../Shared/Plans/Plans";
 import "./Index.css";
 

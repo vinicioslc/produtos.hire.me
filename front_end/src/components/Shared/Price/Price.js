@@ -1,11 +1,8 @@
 import React, { Fragment, Component } from "react";
 import "./Price.css";
 export default class Price extends Component {
-  constructor(props) {
-    super(props);
-  }
   priceSymbol() {
-    return navigator.language == "pt-BR" ? "R$" : "$";
+    return navigator.language === "pt-BR" ? "R$" : "$";
   }
   priceUnit() {
     return this.props.price.toString().split(".")[0];

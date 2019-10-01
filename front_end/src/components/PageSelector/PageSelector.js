@@ -1,12 +1,8 @@
 import React, { Fragment, Component } from "react";
 import "./PageSelector.css";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default class PageSelector extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <Fragment>
