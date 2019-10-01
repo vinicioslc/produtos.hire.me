@@ -1,10 +1,10 @@
 import React, { Fragment, Component } from "react";
 
-import plansApi from "../../services/plans-api";
-import PlanCard from "../Shared/PlanCard/PlanCard";
-import "./Planos.css";
+import plansApi from "../../../services/plans-api";
+import PlanCard from "../PlanCard/PlanCard";
+import "./Plans.css";
 import EmptyResults from "../EmptyResults/EmptyResults";
-export default class Planos extends Component {
+export default class Plans extends Component {
   constructor(props) {
     super(props);
     this.state = {};

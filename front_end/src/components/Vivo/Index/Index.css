@@ -1,3 +1,9 @@
+@import url("https://db.onlinewebfonts.com/c/ffa77d1a7abf63e91e70f37b34dfe2f8?family=ITC+Officina+Serif");
+
+.vivo {
+  font-family: "ITC Officina Serif";
+}
+
 .app.vivo {
   text-align: center;
 }

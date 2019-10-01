@@ -17,6 +17,11 @@ func init() {
 				ID:          bson.NewObjectId(),
 				PlanCarrier: carrier,
 				PlanSKU:     "WEB_CLARO5GB",
+				PlanHighlights: []models.PlanHighlights{
+					{
+						Title: "+1GB de bônus com renovação semanal*",
+					},
+				},
 				PlanAdvantages: []models.PlanAdvantage{
 					{
 						"Ganhe 1GB de bônus, ",
@@ -27,8 +32,8 @@ func init() {
 						"em ligações locais para celulares de outras operadoras",
 					},
 				},
-				PlanTitle:       "5GB",
-				PlanDetails:     "de internet 5G",
+				PlanTitle:       "100 MB",
+				PlanDetails:     "Por dia",
 				PlanSmallWords:  "sem renovação automática",
 				PlanLimitMbytes: 5000,
 				PlanLimitDays:   7,
@@ -65,8 +70,8 @@ func init() {
 						"em ligações locais para celulares de outras operadoras",
 					},
 				},
-				PlanTitle:       "3GB",
-				PlanDetails:     "de internet 4.5G",
+				PlanTitle:       "1GB",
+				PlanDetails:     "Por semana",
 				PlanSmallWords:  "com renovação automática",
 				PlanLimitMbytes: 1000,
 				PlanLimitDays:   7,

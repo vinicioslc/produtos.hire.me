@@ -1,10 +1,10 @@
 import React, { Fragment, Component } from "react";
 
-import DetailsModal from "../../DetailsModal/DetailsModal";
+import DetailsModal from "../DetailsModal/DetailsModal";
 import ActionBtn from "../ActionBtn/ActionBtn";
 import Price from "../Price/Price";
 
-export default class Planos extends Component {
+export default class Plans extends Component {
   constructor(props) {
     super(props);
   }
@@ -47,7 +47,7 @@ export default class Planos extends Component {
           <ol className="plan-advantages">
             {this.curPlan().plan_advantages.map(advantage => {
               return (
-                <li className="advantage">
+                <li key={advantage.a_title} className="advantage">
                   <p>
                     <span className="bold">{advantage.a_title}</span>
                     <span>{advantage.a_description}</span>
@@ -63,10 +63,12 @@ export default class Planos extends Component {
               theme={this.props.theme}
             />
 
-            <span class="plan-small-words" style={{ display: "block" }}>
+            <span className="plan-small-words" style={{ display: "block" }}>
               {`Válido por ${this.curPlan().plan_limit_days || 0} dias`} dias
             </span>
-            <p class="plan-small-words">{this.curPlan().plan_small_words}</p>
+            <p className="plan-small-words">
+              {this.curPlan().plan_small_words}
+            </p>
           </div>
           <DetailsModal
             button={

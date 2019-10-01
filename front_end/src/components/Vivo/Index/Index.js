@@ -1,5 +1,5 @@
 import React, { Fragment, Component } from "react";
-import Planos from "../../Planos/Planos";
+import Plans from "../../Shared/Plans/Plans";
 import "./Index.css";
 
 export default class Index extends Component {
@@ -10,8 +10,8 @@ export default class Index extends Component {
 
   render() {
     return (
-      <div class="App">
-        <Planos theme={this.state.theme}></Planos>
+      <div className="App">
+        <Plans theme={this.state.theme}></Plans>
       </div>
     );
   }
