@@ -34,7 +34,7 @@ func (m *PlansDAO) Connect() *PlansDAO {
 
 // ListPlans Lista todos os planos dado a operadora
 func (m *PlansDAO) ListPlans(carrier string) ([]models.Plan, error) {
-	var plans []models.Plan
+	var plans []models.Plan = ([]models.Plan{})
 	err := db.C(PLANCOLLECTION).Find(bson.M{
 		"plan_carrier": carrier,
 	}).All(&plans)
@@ -45,4 +45,16 @@ func (m *PlansDAO) ListPlans(carrier string) ([]models.Plan, error) {
 func (m *PlansDAO) CreatePlan(plan models.Plan) error {
 	err := db.C(PLANCOLLECTION).Insert(&plan)
 	return err
+}
+
+// GetPlanByCarrierAndSku Returns an plan details by sku
+func (m *PlansDAO) GetPlanByCarrierAndSku(Carrier string, Sku string) (models.Plan, error) {
+	var plan models.Plan
+
+	err := db.C(PLANCOLLECTION).Find(bson.M{
+		"plan_carrier": Carrier,
+		"plan_sku":     Sku,
+	}).One(&plan)
+
+	return plan, err
 }

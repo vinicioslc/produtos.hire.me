@@ -3,7 +3,8 @@ package routes
 import (
 	"bemobi-hire/server/config"
 	"bemobi-hire/server/dao"
-	"log"
+	"bemobi-hire/server/helpers"
+	"bemobi-hire/server/models"
 	"net/http"
 
 	"github.com/go-chi/chi"
@@ -29,18 +30,27 @@ func GetAllCarrierPlans(w http.ResponseWriter, r *http.Request) {
 
 	plans, err := pdao.ListPlans(carrier)
 	if err != nil {
-		log.Fatal(err.Error())
+		helpers.RespondWithError(w, 500, err.Error())
 	}
-	render.JSON(w, r, plans)
+	if plans == nil {
+		helpers.RespondwithJSON(w, 200, ([]models.Plan{}))
+	} else {
+		render.JSON(w, r, plans)
+	}
 }
 
 // GetPlanDetails Return Plan Details from given carrier and sku
 func GetPlanDetails(w http.ResponseWriter, r *http.Request) {
 	carrier := chi.URLParam(r, "carrier")
+	sku := chi.URLParam(r, "sku")
+	planDetails, err := pdao.GetPlanByCarrierAndSku(carrier, sku)
 
-	plans, err := pdao.ListPlans(carrier)
-	if err != nil {
-		log.Fatal(err.Error())
+	if planDetails.PlanSKU == "" && err == nil {
+		helpers.RespondWithError(w, 404, "Plan not found")
 	}
-	render.JSON(w, r, plans)
+	if err != nil {
+		helpers.RespondWithError(w, 500, err.Error())
+	}
+
+	render.JSON(w, r, planDetails.PlanMoreDetails)
 }
