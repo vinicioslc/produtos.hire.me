@@ -1,0 +1,32 @@
+.offer-title {
+  color: rgb(0, 153, 51);
+
+  padding: 2%;
+  font-size: calc(15px + 2vmin);
+  font-weight: 700;
+}
+
+.plan-price-section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.plan-title-text {
+  color: white;
+  font-weight: 800;
+}
+.plan-details-text {
+  display: block;
+  color: white;
+  font-weight: 400;
+  font-size: calc(2px + 2vmin);
+}
+
+.plan-li {
+  display: inline-table;
+  border-radius: 10px;
+  transition-duration: 0.5s;
+  margin-bottom: 5vh;
+  width: 25vw;
+}

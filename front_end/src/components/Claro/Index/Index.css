@@ -37,7 +37,7 @@
 }
 
 .dark-bg.claro {
-  background: #a61d19;
+  background: #e32620;
 }
 
 .bright-bg.claro {
@@ -61,7 +61,24 @@
   transform: scale(1.02);
   text-decoration: underline;
 }
+.plan-li.claro {
+  width: 19%;
+}
+.plan-header.claro {
+  align-items: flex-end;
+  flex-direction: row;
+  display: flex;
+  padding-top: 10%;
+  padding-bottom: 20%;
+}
 
+.plan-title-container.claro {
+}
+.plan-details-container.claro > span {
+  font-weight: 200;
+  font-size: calc(5px + 1vmin);
+  font-family: sans-serif;
+}
 .btn.claro {
   -webkit-border-radius: 7px;
   -moz-border-radius: 7px;
@@ -80,15 +97,20 @@
   top: 0;
   margin-right: -1em;
   margin-top: -1em;
-  background: #ff4f4f;
+  background: #202020;
   color: white;
   font-weight: 800;
-  border-radius: 50%;
+  border-radius: 0%;
   width: 2em;
   height: 2em;
   border: none;
 }
 
+.plan-highlight.claro {
+  padding: 5%;
+  text-align: start;
+  background: #ab140f;
+}
 .plan-container {
   animation-duration: 500ms;
   transition: 0.3s;
@@ -103,6 +125,20 @@
   -webkit-box-shadow: 0px 0px 50px -20px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0px 0px 50px -20px rgba(0, 0, 0, 0.5);
   box-shadow: 0px 0px 50px -20px rgba(0, 0, 0, 0.5);
+}
+
+.price-details-section.claro {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  flex-direction: column;
+}
+
+.plan-price-section.claro {
+  display: flex;
+  justify-content: center;
+  align-items: normal;
+  flex-direction: column;
 }
 
 .plan-container:hover {

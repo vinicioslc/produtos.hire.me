@@ -4,6 +4,7 @@ import ThemmedComponent from "../../Base/ThemmedComponent/index";
 import DetailsModal from "../DetailsModal/DetailsModal";
 import ActionBtn from "../ActionBtn/ActionBtn";
 import Price from "../Price/Price";
+import "./PlanCard.css";
 
 export default class Plans extends ThemmedComponent {
   curPlan() {
@@ -22,30 +23,38 @@ export default class Plans extends ThemmedComponent {
 
   render() {
     return (
-      <li className="plan-li" key={this.curPlan().id}>
-        <div className="plan-container">
+      <li className={`plan-li ${this.getTheme()}`} key={this.curPlan().id}>
+        <div className={`plan-container ${this.getTheme()}`}>
           <div className={`plan-header ${this.styleClass()}`}>
-            <span className="plan-title">{this.curPlan().plan_title}</span>
-            <span className="plan-title-details">
-              {this.curPlan().plan_details}
-            </span>
+            <div className={`plan-title-container ${this.getTheme()}`}>
+              <span className={`plan-title-text ${this.getTheme()}`}>
+                {this.curPlan().plan_title}
+              </span>
+            </div>
+            <div className={`plan-details-container ${this.getTheme()}`}>
+              <span className={`plan-details-text ${this.getTheme()}`}>
+                {this.curPlan().plan_details}
+              </span>
+            </div>
           </div>
           <Highlights
             highlights={this.curPlan()}
             className={this.styleClass()}
           ></Highlights>
           <PlanAdvantages advantages={this.curAdvantages()}></PlanAdvantages>
-          <PlanFinalSection
-            currentPlan={this.curPlan()}
-            className={this.getTheme()}
-          ></PlanFinalSection>
-          <DetailsModal
-            button={
-              <div className="mt">
-                <ActionBtn theme={this.getTheme()}>Assinar</ActionBtn>
-              </div>
-            }
-          ></DetailsModal>
+          <div className={`plan-price-section ${this.getTheme()}`}>
+            <PlanFinalSection
+              currentPlan={this.curPlan()}
+              className={this.getTheme()}
+            ></PlanFinalSection>
+            <DetailsModal
+              button={
+                <div className="mt">
+                  <ActionBtn theme={this.getTheme()}>Eu Quero !</ActionBtn>
+                </div>
+              }
+            ></DetailsModal>
+          </div>
           <SeeDetailsComponent
             theme={this.getTheme()}
             plan={this.curPlan()}
@@ -102,17 +111,19 @@ const PlanAdvantages = function({ advantages, className }) {
  */
 const PlanFinalSection = function({ currentPlan, className }) {
   return (
-    <div className="plan-end-section">
+    <div className={`price-details-section ${className}`}>
       <Price
         price={currentPlan.plan_price}
         days={currentPlan.plan_limit_days}
         theme={className}
       />
 
-      <span className="plan-small-words" style={{ display: "block" }}>
+      <span className={`plan-small-words ${className}`}>
         {`Válido por ${currentPlan.plan_limit_days || 0} dias`} dias
       </span>
-      <p className="plan-small-words">{currentPlan.plan_small_words}</p>
+      <span className={`plan-small-words grey ${className}`}>
+        {currentPlan.plan_small_words}
+      </span>
     </div>
   );
 };

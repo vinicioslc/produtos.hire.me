@@ -7,7 +7,6 @@
 .app.vivo {
   text-align: center;
 }
-
 .header.vivo {
   background-color: rgb(70, 30, 95);
   min-height: 10vh;
@@ -41,6 +40,46 @@
     rgba(118, 72, 159, 1) 100%
   );
 }
+.offer-title.vivo {
+  color: #609;
+}
+
+.plan-details-text.vivo {
+  position: inherit;
+  top: 0%;
+  color: white;
+  font-weight: 400;
+  font-size: calc(2px + 2vmin);
+}
+.plan-highlight.vivo {
+  text-align: start;
+}
+.plan-header.vivo {
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+  display: flex;
+}
+.plan-title-container.vivo {
+  margin-top: 5%;
+}
+.plan-details-container.vivo {
+  margin-bottom: 5%;
+}
+.price-details-section.vivo {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  flex-direction: column;
+}
+
+.plan-price-section.vivo {
+  margin-top: 10%;
+  align-items: baseline;
+}
+.plan-small-words {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
 
 .bright-bg.vivo {
   background: rgb(221, 66, 172);
@@ -62,10 +101,12 @@
 }
 
 .btn.vivo {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   -webkit-border-radius: 7px;
   -moz-border-radius: 7px;
   border-radius: 7px;
   color: #ffffff;
+  font-weight: 700;
 
   background: #ffb624;
   padding: 10px 20px 10px 20px;

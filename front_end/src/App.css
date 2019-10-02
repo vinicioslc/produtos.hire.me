@@ -9,3 +9,18 @@
 .App-link {
   color: #f700ff;
 }
+
+.grey {
+  color: grey;
+}
+
+.bold {
+  font-weight: 700;
+}
+.white {
+  color: white;
+}
+
+.primary-text-color {
+  color: rgb(0, 153, 77);
+}

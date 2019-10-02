@@ -21,7 +21,7 @@ export default class DetailsModal extends React.Component {
 
   render() {
     return (
-      <main>
+      <div>
         <Modal
           show={this.state.show}
           animate={this.state.openAnimation}
@@ -34,7 +34,7 @@ export default class DetailsModal extends React.Component {
         <div className="modal-button" type="button" onClick={this.showModal}>
           {this.props.button}
         </div>
-      </main>
+      </div>
     );
   }
 }
