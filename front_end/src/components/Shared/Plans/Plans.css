@@ -62,7 +62,6 @@
 
 .plan-highlight {
   color: white;
-  background: #76489f;
   margin-left: -10px;
   margin-right: -10px;
   padding: 2%;
@@ -82,8 +81,9 @@
   background: #c6489f;
 }
 
-.plan-highlight > span {
+.plan-highlight {
   font-size: calc(1px + 2vmin);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   display: block;
   text-align: left;
   text-justify: distribute;

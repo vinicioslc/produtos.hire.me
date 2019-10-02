@@ -26,6 +26,7 @@ type PlanDetails struct {
 type Plan struct {
 	ID              bson.ObjectId    `bson:"_id" json:"id"`
 	PlanSKU         string           `bson:"plan_sku" json:"plan_sku"`
+	Spotted         bool             `bson:"plan_spotted" json:"plan_spotted"`
 	PlanCarrier     string           `bson:"plan_carrier" json:"plan_carrier"`
 	PlanTitle       string           `bson:"plan_title" json:"plan_title"`
 	PlanDetails     string           `bson:"plan_details" json:"plan_details"`

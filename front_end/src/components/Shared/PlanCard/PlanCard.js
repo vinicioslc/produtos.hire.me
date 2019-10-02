@@ -7,57 +7,42 @@ import Price from "../Price/Price";
 import "./PlanCard.css";
 
 export default class Plans extends ThemmedComponent {
-  curPlan() {
+  getPlan() {
     return this.props.curPlan || {};
   }
-  styleClass() {
+  currentStyle() {
     return (
-      (this.props.styleclass || "") +
+      (this.props.className || "") +
       (this.props.isPair ? " dark-bg " : " bright-bg ") +
       this.getTheme()
     );
   }
   curAdvantages() {
-    return this.curPlan().plan_advantages || [];
+    return this.getPlan().plan_advantages || [];
   }
 
   render() {
     return (
-      <li className={`plan-li ${this.getTheme()}`} key={this.curPlan().id}>
+      <li className={`plan-li ${this.getTheme()}`} key={this.getPlan().id}>
         <div className={`plan-container ${this.getTheme()}`}>
-          <div className={`plan-header ${this.styleClass()}`}>
-            <div className={`plan-title-container ${this.getTheme()}`}>
-              <span className={`plan-title-text ${this.getTheme()}`}>
-                {this.curPlan().plan_title}
-              </span>
-            </div>
-            <div className={`plan-details-container ${this.getTheme()}`}>
-              <span className={`plan-details-text ${this.getTheme()}`}>
-                {this.curPlan().plan_details}
-              </span>
-            </div>
-          </div>
+          <PlanHeader
+            plan={this.getPlan()}
+            theme={this.getTheme()}
+            style={this.currentStyle()}
+          />
           <Highlights
-            highlights={this.curPlan()}
-            className={this.styleClass()}
+            highlights={this.getPlan().plan_highlights}
+            className={this.currentStyle()}
+            theme={this.getTheme()}
           ></Highlights>
           <PlanAdvantages advantages={this.curAdvantages()}></PlanAdvantages>
-          <div className={`plan-price-section ${this.getTheme()}`}>
-            <PlanFinalSection
-              currentPlan={this.curPlan()}
-              className={this.getTheme()}
-            ></PlanFinalSection>
-            <DetailsModal
-              button={
-                <div className="mt">
-                  <ActionBtn theme={this.getTheme()}>Eu Quero !</ActionBtn>
-                </div>
-              }
-            ></DetailsModal>
-          </div>
+          <PlanPriceSection
+            plan={this.getPlan()}
+            theme={this.getTheme()}
+          ></PlanPriceSection>
           <SeeDetailsComponent
             theme={this.getTheme()}
-            plan={this.curPlan()}
+            plan={this.getPlan()}
           ></SeeDetailsComponent>
         </div>
       </li>
@@ -65,21 +50,34 @@ export default class Plans extends ThemmedComponent {
   }
 }
 
+const PlanPriceSection = function({ plan, theme }) {
+  return (
+    <div className={`plan-price-section ${theme}`}>
+      <PlanFinalSection currentPlan={plan} className={theme}></PlanFinalSection>
+      <DetailsModal
+        button={
+          <div className="mt">
+            <ActionBtn className={theme}> Quero !</ActionBtn>
+          </div>
+        }
+      ></DetailsModal>
+    </div>
+  );
+};
 /**
  * Show Plan in featured advantages
  */
-const Highlights = function({ highlights, className }) {
-  return highlights.plan_highlights.length > 0 ? (
+const Highlights = function({ highlights, className, theme }) {
+  return highlights.length > 0 ? (
     <div className={`plan-highlight ${className}`}>
-      <img
-        alt=""
-        className="highlights-icon"
-        src={highlights.plan_highlights[0].h_icon}
-      ></img>
-      <div style={{ display: "inline" }}>
-        <span className="bold">{highlights.plan_highlights[0].h_title}</span>
-        <span>{highlights.plan_highlights[0].h_description}</span>
-      </div>
+      <img alt="" className="highlights-icon" src={highlights[0].h_icon}></img>
+      <span className={`highlight-title ${theme}`}>
+        {highlights[0].h_title}
+      </span>
+      <span className={`highlight-desc ${theme}`}>
+        {highlights[0].h_description}
+      </span>
+      <div style={{ display: "inline" }}></div>
     </div>
   ) : (
     <Fragment></Fragment>
@@ -91,10 +89,10 @@ const Highlights = function({ highlights, className }) {
  */
 const PlanAdvantages = function({ advantages, className }) {
   return (
-    <ol className="plan-advantages">
+    <ol className={`plan-advantages`}>
       {advantages.map(advantage => {
         return (
-          <li key={advantage.a_title} className="advantage">
+          <li key={advantage.a_title} className={`advantage`}>
             <p>
               <span className={`bold ${className}`}>{advantage.a_title}</span>
               <span>{advantage.a_description}</span>
@@ -103,6 +101,21 @@ const PlanAdvantages = function({ advantages, className }) {
         );
       })}
     </ol>
+  );
+};
+
+const PlanHeader = function({ plan, theme, style }) {
+  return (
+    <div className={`plan-header ${style}`}>
+      <div className={`plan-title-container ${theme}`}>
+        <span className={`plan-title-text ${theme}`}>{plan.plan_title}</span>
+      </div>
+      <div className={`plan-details-container ${theme}`}>
+        <span className={`plan-details-text ${theme}`}>
+          {plan.plan_details}
+        </span>
+      </div>
+    </div>
   );
 };
 
@@ -119,7 +132,9 @@ const PlanFinalSection = function({ currentPlan, className }) {
       />
 
       <span className={`plan-small-words ${className}`}>
-        {`Válido por ${currentPlan.plan_limit_days || 0} dias`} dias
+        {`Válido por ${currentPlan.plan_limit_days || 0} ${
+          currentPlan.plan_limit_days > 1 ? "dias" : "dia"
+        }`}
       </span>
       <span className={`plan-small-words grey ${className}`}>
         {currentPlan.plan_small_words}

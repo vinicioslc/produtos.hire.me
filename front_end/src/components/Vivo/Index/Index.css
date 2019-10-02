@@ -36,20 +36,32 @@
   background: rgb(88, 31, 138);
   background: linear-gradient(
     45deg,
-    rgba(88, 31, 138, 1) 0%,
+    rgba(88, 31, 138, 1) 25%,
     rgba(118, 72, 159, 1) 100%
+  );
+}
+
+.bright-bg.vivo {
+  background: rgb(221, 66, 172);
+  background: linear-gradient(
+    45deg,
+    rgb(180, 64, 143) 25%,
+    rgba(255, 64, 196, 1) 100%
   );
 }
 .offer-title.vivo {
   color: #609;
 }
 
+.plan-li.claro {
+  width: 20%;
+}
 .plan-details-text.vivo {
   position: inherit;
   top: 0%;
   color: white;
   font-weight: 400;
-  font-size: calc(2px + 2vmin);
+  font-size: calc(5px + 1vmin);
 }
 .plan-highlight.vivo {
   text-align: start;
@@ -79,15 +91,6 @@
 }
 .plan-small-words {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.bright-bg.vivo {
-  background: rgb(221, 66, 172);
-  background: linear-gradient(
-    45deg,
-    rgb(180, 64, 143) 0%,
-    rgba(255, 64, 196, 1) 100%
-  );
 }
 
 .btn.details.vivo:hover {

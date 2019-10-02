@@ -24,10 +24,6 @@ func init() {
 				},
 				PlanAdvantages: []models.PlanAdvantage{
 					{
-						"Ganhe 100MB de bônus, ",
-						"válido por 7 dias, ao acumular R$35 em recarga",
-					},
-					{
 						"Minutos ilimitados ",
 						"em ligações locais para celulares de outras operadoras",
 					},
@@ -36,8 +32,8 @@ func init() {
 				PlanDetails:     "Por dia",
 				PlanSmallWords:  "sem renovação automática",
 				PlanLimitMbytes: 5000,
-				PlanLimitDays:   7,
-				PlanPrice:       8.990,
+				PlanLimitDays:   1,
+				PlanPrice:       1.990,
 				PlanMoreDetails: models.PlanDetails{
 					Franchise: `Prezão R$1,99 / dia
  
@@ -60,6 +56,7 @@ func init() {
 				ID:          bson.NewObjectId(),
 				PlanCarrier: carrier,
 				PlanSKU:     "WEB_CLARO1GB",
+				Spotted:     true,
 				PlanHighlights: []models.PlanHighlights{
 					{
 						Title: "+1GB de bônus com renovação semanal*",
@@ -69,10 +66,6 @@ func init() {
 					{
 						"Ganhe 1GB de bônus, ",
 						"válido por 7 dias, ao acumular R$35 em recarga",
-					},
-					{
-						"Minutos ilimitados ",
-						"em ligações locais para celulares de outras operadoras",
 					},
 				},
 				PlanTitle:       "1GB",
@@ -164,7 +157,7 @@ func init() {
 				PlanSmallWords:  "com renovação automática",
 				PlanLimitMbytes: 1000,
 				PlanLimitDays:   7,
-				PlanPrice:       9.99,
+				PlanPrice:       14.99,
 				PlanMoreDetails: models.PlanDetails{
 					Franchise: `
 <div style="margin-left: 40px;"><strong>2GB (1GB + 1GB* de bônus com renovação semanal)</strong></div>
