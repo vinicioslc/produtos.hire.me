@@ -79,13 +79,14 @@ const Highlights = function({ highlights, className, theme }) {
   return highlights.length > 0 ? (
     <div className={`plan-highlight ${className}`}>
       <img alt="" className="highlights-icon" src={highlights[0].h_icon}></img>
-      <span className={`highlight-title ${theme}`}>
-        {highlights[0].h_title}
-      </span>
-      <span className={`highlight-desc ${theme}`}>
-        {highlights[0].h_description}
-      </span>
-      <div style={{ display: "inline" }}></div>
+      <p className={`highlight-text ${theme}`}>
+        <span className={`highlight-title ${theme}`}>
+          {highlights[0].h_title}
+        </span>
+        <span className={`highlight-desc ${theme}`}>
+          {highlights[0].h_description}
+        </span>
+      </p>
     </div>
   ) : (
     <Fragment></Fragment>

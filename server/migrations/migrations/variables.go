@@ -1,5 +1,5 @@
 package migrations
 
 var (
-	plansColl = "carrier_plans"
+	plansCollection = "carrier_plans"
 )

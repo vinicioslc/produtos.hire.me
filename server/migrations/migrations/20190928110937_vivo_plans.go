@@ -12,8 +12,8 @@ import (
 func init() {
 	carrier := "vivo"
 	migrate.Register(func(db *mgo.Database) error { // uP
-		return db.C(plansColl).Insert(
-			models.Plan{
+		return db.C(plansCollection).Insert(
+			models.DatabasePlan{
 				ID:          bson.NewObjectId(),
 				PlanCarrier: carrier,
 				Spotted:     true,
@@ -47,7 +47,7 @@ func init() {
 					Regulation:     "",
 				},
 			},
-			models.Plan{
+			models.DatabasePlan{
 				ID:              bson.NewObjectId(),
 				PlanCarrier:     carrier,
 				PlanSKU:         "WEB_VIVOTURBO7DIAS1499",
@@ -80,31 +80,28 @@ func init() {
 					Regulation:     "",
 				},
 			},
-			models.Plan{
+			models.DatabasePlan{
 				ID:              bson.NewObjectId(),
 				PlanCarrier:     carrier,
 				PlanSKU:         "WEB_VIVOTURBO7DIAS1499",
 				PlanTitle:       "200MIN",
 				PlanDetails:     "de internet 4.5G",
 				PlanSmallWords:  "com renovação automática",
-				PlanLimitMbytes: 5000,
+				PlanLimitMbytes: 0,
 				PlanLimitDays:   7,
 				PlanPrice:       14.990,
 				PlanAdvantages: []models.PlanAdvantage{
 					{
-						"Ganhe 1GB de bônus,",
-						" válido por 7 dias, ao acumular R$35 em recarga",
-					},
-					{
-						"Minutos ilimitados",
-						" em ligações locais para celulares de outras operadoras",
+						"Minutos ilimitados, ",
+						"para celulares e fixos Vivo de todo o Brasil, usando 15",
+					}, {
+						Title: "Receba internet",
 					},
 				},
 				PlanHighlights: []models.PlanHighlights{
 					{
-						"https://celular.vivo.com.br/planos/pre/img/whattsicon.png",
-						"WhatsApp Ilimitado",
-						"para mensagens, vídeos e fotos",
+						Title:       "Ligações ilimitadas ",
+						Description: "para outras operadoras",
 					},
 				},
 				PlanMoreDetails: models.PlanDetails{
@@ -115,7 +112,7 @@ func init() {
 			},
 		)
 	}, func(db *mgo.Database) error { // dOWN
-		_, err := db.C(plansColl).RemoveAll(bson.M{
+		_, err := db.C(plansCollection).RemoveAll(bson.M{
 			"plan_carrier": carrier,
 		})
 		return err

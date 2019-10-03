@@ -28,7 +28,7 @@ func Plans(config config.AppConfig) *chi.Mux {
 func GetAllCarrierPlans(w http.ResponseWriter, r *http.Request) {
 	carrier := chi.URLParam(r, "carrier")
 
-	plans, err := pdao.ListPlans(carrier)
+	plans, err := pdao.ListPlansByCarrier(carrier)
 	if err != nil {
 		helpers.RespondWithError(w, 500, err.Error())
 	}

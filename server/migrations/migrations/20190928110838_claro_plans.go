@@ -12,8 +12,8 @@ import (
 func init() {
 	carrier := "claro"
 	migrate.Register(func(db *mgo.Database) error { // uP
-		return db.C(plansColl).Insert(
-			models.Plan{
+		return db.C(plansCollection).Insert(
+			models.DatabasePlan{
 				ID:          bson.NewObjectId(),
 				PlanCarrier: carrier,
 				PlanSKU:     "WEB_CLARO100MB",
@@ -52,7 +52,7 @@ func init() {
 					Regulation:     "",
 				},
 			},
-			models.Plan{
+			models.DatabasePlan{
 				ID:          bson.NewObjectId(),
 				PlanCarrier: carrier,
 				PlanSKU:     "WEB_CLARO1GB",
@@ -133,7 +133,7 @@ func init() {
 					AdditionalInfo: "",
 					Regulation:     "",
 				},
-			}, models.Plan{
+			}, models.DatabasePlan{
 				ID:          bson.NewObjectId(),
 				PlanCarrier: carrier,
 				PlanSKU:     "WEB_CLARO5GB",
@@ -220,7 +220,7 @@ func init() {
 			},
 		)
 	}, func(db *mgo.Database) error { // dOWN
-		_, err := db.C(plansColl).RemoveAll(bson.M{
+		_, err := db.C(plansCollection).RemoveAll(bson.M{
 			"plan_carrier": carrier,
 		})
 		return err

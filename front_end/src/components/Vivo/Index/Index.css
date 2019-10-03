@@ -63,6 +63,7 @@
 }
 .plan-highlight.vivo {
   text-align: start;
+  display: flex;
 }
 .plan-header.vivo {
   align-items: flex-start;
@@ -100,14 +101,25 @@
   font-size: 1.5em;
 }
 
+.highlight-text.vivo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
 .highlight-title.vivo {
   font-size: 0.8em;
 }
 .highlight-desc.vivo {
   font-size: 0.7em;
 }
+.advantage-title.vivo {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 0.9em;
+}
 .advantage-desc.vivo {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 0.8em;
 }
 
 /* Featured content */
