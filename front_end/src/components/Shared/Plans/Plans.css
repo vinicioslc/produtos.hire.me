@@ -19,17 +19,13 @@
 .plan-header {
   border-radius: 10px;
   margin-left: -10px;
+  padding: 20px;
   padding-top: 10px;
   margin-top: -20px;
   margin-right: -10px;
   padding-bottom: 30px;
   margin-bottom: -15px;
   font-size: calc(10px + 2vmin);
-}
-
-.plan-container > div {
-  padding-left: 20px;
-  padding-right: 20px;
 }
 
 .plan-container {
@@ -127,29 +123,11 @@
   -webkit-transform: rotateZ(45deg);
   left: 9px;
 }
+
 .down-arrow:after {
   transform: rotateZ(-45deg);
   -webkit-transform: rotateZ(-45deg);
   left: 22px;
-}
-
-/* On screens that are 992px or less, set the background color to blue */
-@media screen and (max-width: 992px) {
-  .plan-li {
-    min-width: 400px;
-    display: inline-block;
-  }
-}
-
-/* On screens that are 600px or less, set the background color to olive */
-@media screen and (max-width: 600px) {
-  .plan-li {
-    margin: 30px;
-    display: inline;
-  }
-  .plan-container {
-    margin: 4vw;
-  }
 }
 
 .mt {

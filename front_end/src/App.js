@@ -16,13 +16,13 @@ function App() {
         <Route
           path="/vivo"
           render={props => (
-            <MainPage {...props} component={Vivo} title="Vivo" />
+            <MainPage {...props} component={Vivo} title="Vivo Pré-Pago" />
           )}
         />
         <Route
           path="/claro"
           render={props => (
-            <MainPage {...props} component={Claro} title="Claro" />
+            <MainPage {...props} component={Claro} title="Prézão Claro" />
           )}
         />
         <Route path="/" component={PageSelector} />

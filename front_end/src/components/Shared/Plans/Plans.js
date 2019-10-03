@@ -25,7 +25,7 @@ export default class Plans extends ThemmedComponent {
             <figure className={`logo ${this.props.theme}`}></figure>
           </header>
           <h1 className={`offer-title ${this.props.theme}`}>
-            Ofertas feitas para você
+            Ofertas feitas especialmente para você
           </h1>
           {this.state.plans ? (
             <ul>

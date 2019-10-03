@@ -51,7 +51,7 @@ func init() {
 				ID:              bson.NewObjectId(),
 				PlanCarrier:     carrier,
 				PlanSKU:         "WEB_VIVOTURBO7DIAS1499",
-				PlanTitle:       "3GB",
+				PlanTitle:       "1.5GB",
 				PlanDetails:     "de internet 4.5G",
 				PlanSmallWords:  "com renovação automática",
 				PlanLimitMbytes: 2000,
@@ -69,8 +69,8 @@ func init() {
 				},
 				PlanHighlights: []models.PlanHighlights{
 					{
-						"https://celular.vivo.com.br/planos/pre/img/whattsicon.png",
-						"WhatsApp Ilimitado",
+						"https://www.pngarts.com/files/3/Telegram-Logo-PNG-Image-Background.png",
+						"Telegram Ilimitado",
 						"para mensagens, vídeos e fotos",
 					},
 				},
@@ -84,7 +84,7 @@ func init() {
 				ID:              bson.NewObjectId(),
 				PlanCarrier:     carrier,
 				PlanSKU:         "WEB_VIVOTURBO7DIAS1499",
-				PlanTitle:       "5GB",
+				PlanTitle:       "200MIN",
 				PlanDetails:     "de internet 4.5G",
 				PlanSmallWords:  "com renovação automática",
 				PlanLimitMbytes: 5000,

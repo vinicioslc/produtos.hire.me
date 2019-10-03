@@ -2,9 +2,6 @@
   display: inline;
   margin: 15px;
 }
-.offer-text {
-  text-align: left;
-}
 .offer-price-cifr {
   vertical-align: text-top;
   font-weight: 700;
@@ -23,8 +20,4 @@
   vertical-align: text-top;
   font-weight: 700;
   font-size: 1em;
-}
-
-.offer-text.claro {
-  color: orangered;
 }

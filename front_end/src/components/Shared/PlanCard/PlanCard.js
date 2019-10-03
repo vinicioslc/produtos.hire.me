@@ -4,11 +4,15 @@ import ThemmedComponent from "../../Base/ThemmedComponent/index";
 import DetailsModal from "../DetailsModal/DetailsModal";
 import ActionBtn from "../ActionBtn/ActionBtn";
 import Price from "../Price/Price";
+import SpotIndicator from "../SpotIndicator/SpotIndicator";
 import "./PlanCard.css";
 
 export default class Plans extends ThemmedComponent {
   getPlan() {
     return this.props.curPlan || {};
+  }
+  isSpotted() {
+    return this.getPlan().plan_spotted || false;
   }
   currentStyle() {
     return (
@@ -25,6 +29,7 @@ export default class Plans extends ThemmedComponent {
     return (
       <li className={`plan-li ${this.getTheme()}`} key={this.getPlan().id}>
         <div className={`plan-container ${this.getTheme()}`}>
+          <SpotIndicator theme={this.getTheme()} showSpot={this.isSpotted()} />
           <PlanHeader
             plan={this.getPlan()}
             theme={this.getTheme()}
@@ -35,7 +40,10 @@ export default class Plans extends ThemmedComponent {
             className={this.currentStyle()}
             theme={this.getTheme()}
           ></Highlights>
-          <PlanAdvantages advantages={this.curAdvantages()}></PlanAdvantages>
+          <PlanAdvantages
+            theme={this.getTheme()}
+            advantages={this.curAdvantages()}
+          ></PlanAdvantages>
           <PlanPriceSection
             plan={this.getPlan()}
             theme={this.getTheme()}
@@ -87,15 +95,19 @@ const Highlights = function({ highlights, className, theme }) {
 /**
  * Show each plan advantages
  */
-const PlanAdvantages = function({ advantages, className }) {
+const PlanAdvantages = function({ advantages, theme }) {
   return (
-    <ol className={`plan-advantages`}>
+    <ol className={`plan-advantages ${theme}`}>
       {advantages.map(advantage => {
         return (
-          <li key={advantage.a_title} className={`advantage`}>
+          <li key={advantage.a_title} className={`advantage ${theme}`}>
             <p>
-              <span className={`bold ${className}`}>{advantage.a_title}</span>
-              <span>{advantage.a_description}</span>
+              <span className={`bold advantage-title ${theme}`}>
+                {advantage.a_title}
+              </span>
+              <span className={`  advantage-desc ${theme}`}>
+                {advantage.a_description}
+              </span>
             </p>
           </li>
         );

@@ -1,6 +1,7 @@
 import React, { Fragment, Component } from "react";
 import "./Price.css";
-export default class Price extends Component {
+import ThemmedComponent from "../../Base/ThemmedComponent";
+export default class Price extends ThemmedComponent {
   priceSymbol() {
     return navigator.language === "pt-BR" ? "R$" : "$";
   }
@@ -14,14 +15,17 @@ export default class Price extends Component {
   render() {
     return (
       <Fragment>
-        <div
-          className={`price-box offer-text primary-text-color bold ${this.props
-            .theme || ""}`}
-        >
-          <span className="offer-price-cifr">{this.priceSymbol()}</span>
-          <span className="offer-price-int">{this.priceUnit()}</span>
-          <span className="offer-price-cent">
-            <span className="offer-price-cent-split">,</span>
+        <div className={`price-box offer-text bold ${this.getTheme()}`}>
+          <span className={`offer-price-cifr ${this.getTheme()}`}>
+            {this.priceSymbol()}
+          </span>
+          <span className={`offer-price-int ${this.getTheme()}`}>
+            {this.priceUnit()}
+          </span>
+          <span className={`offer-price-cent ${this.getTheme()}`}>
+            <span className={`offer-price-cent-split ${this.getTheme()}`}>
+              ,
+            </span>
             {this.priceCent()}
           </span>
         </div>

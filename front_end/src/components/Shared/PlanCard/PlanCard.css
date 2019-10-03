@@ -27,6 +27,30 @@
   display: inline-table;
   border-radius: 10px;
   transition-duration: 0.5s;
+  min-width: 350px;
+  max-width: 400px;
+  margin: auto;
+  width: 19%;
   margin-bottom: 5vh;
-  width: 25vw;
+}
+
+/* On screens that are 992px or less, set the background color to blue */
+@media screen and (max-width: 992px) {
+  .plan-li {
+    display: inline-block;
+    width: auto;
+    margin: auto;
+    margin-bottom: 5vh;
+  }
+}
+
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 600px) {
+  .plan-li {
+    display: block;
+    width: auto;
+    margin: auto;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+  }
 }

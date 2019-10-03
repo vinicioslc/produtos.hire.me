@@ -17,7 +17,7 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
+/* Logo in top page */
 .logo.vivo {
   height: 50px; /* You must set a specified height */
   width: 150px;
@@ -32,6 +32,11 @@
   color: #609;
 }
 
+.offer-title.vivo {
+  color: #609;
+}
+
+/* Plan Card */
 .dark-bg.vivo {
   background: rgb(88, 31, 138);
   background: linear-gradient(
@@ -49,13 +54,6 @@
     rgba(255, 64, 196, 1) 100%
   );
 }
-.offer-title.vivo {
-  color: #609;
-}
-
-.plan-li.claro {
-  width: 20%;
-}
 .plan-details-text.vivo {
   position: inherit;
   top: 0%;
@@ -72,6 +70,7 @@
   justify-content: center;
   display: flex;
 }
+
 .plan-title-container.vivo {
   margin-top: 5%;
 }
@@ -89,10 +88,71 @@
   margin-top: 10%;
   align-items: baseline;
 }
-.plan-small-words {
+.plan-small-words.vivo {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.offer-text.vivo {
+  text-align: left;
+  font-family: "ITC Officina Serif", sans-serif;
+  font-weight: 800;
+  color: #609;
+  font-size: 1.5em;
+}
+
+.highlight-title.vivo {
+  font-size: 0.8em;
+}
+.highlight-desc.vivo {
+  font-size: 0.7em;
+}
+.advantage-desc.vivo {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Featured content */
+.spot-container.vivo {
+  position: relative;
+  height: 0px;
+  margin-right: auto;
+}
+.spot-indicator.vivo {
+  position: relative;
+  right: -10px;
+  top: -20px;
+  z-index: 1;
+  overflow: visible;
+  width: 75px;
+  height: 75px;
+  text-align: right;
+  margin: auto;
+  margin-left: 0;
+}
+.spot-indicator.vivo span {
+  width: 128px;
+  height: 47px;
+  color: #fff;
+  top: -18px;
+  background: transparent;
+  left: -28px;
+  text-align: left;
+  transform: rotate(0);
+  -webkit-transform: rotate(0);
+  padding: 8px 15px;
+  position: absolute;
+  font-size: 12px;
+  z-index: 2;
+  box-shadow: none;
+  background-image: url(https://celular.vivo.com.br/planos/pre/img/svg/vivo-turbo-recommended-bubble.svg);
+  filter: drop-shadow();
+  background-repeat: no-repeat;
+}
+
+.spot-indicator.vivo span:before {
+  content: "Preço Indicado";
+}
+
+/* Buttons */
 .btn.details.vivo:hover {
   background: #76489f30;
 }
