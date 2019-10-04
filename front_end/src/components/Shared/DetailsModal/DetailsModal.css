@@ -56,6 +56,8 @@
   border-radius: 20px;
   padding: 30px;
   opacity: 0;
+
+  max-height: 84vh;
   text-align: left;
 }
 

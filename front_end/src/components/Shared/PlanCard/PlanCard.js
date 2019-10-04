@@ -63,6 +63,7 @@ const PlanPriceSection = function({ plan, theme }) {
     <div className={`plan-price-section ${theme}`}>
       <PlanFinalSection currentPlan={plan} className={theme}></PlanFinalSection>
       <DetailsModal
+        theme={theme}
         button={
           <div className="mt">
             <ActionBtn className={theme}> Quero !</ActionBtn>
@@ -162,18 +163,13 @@ const SeeDetailsComponent = function({ plan, theme }) {
       <DetailsModal
         title="Detalhes do plano"
         theme={theme}
+        sku={plan.plan_sku}
         button={
           <ActionBtn className="details" theme={theme}>
             Ver Detalhes
           </ActionBtn>
         }
-      >
-        <div
-          dangerouslySetInnerHTML={{
-            __html: plan.plan_more_details.franchise
-          }}
-        ></div>
-      </DetailsModal>
+      ></DetailsModal>
     </div>
   );
 };

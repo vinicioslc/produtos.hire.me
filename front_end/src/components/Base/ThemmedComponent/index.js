@@ -4,7 +4,6 @@ class MissingThemeError extends Error {
   message = "MissingThemeError";
   constructor(args) {
     super(args);
-    this.stack = Error().stack();
   }
 }
 

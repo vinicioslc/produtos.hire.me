@@ -1,15 +1,37 @@
 import React, { Fragment } from "react";
+import plansApi from "../../../services/plans-api";
+import ThemmedComponent from "../../Base/ThemmedComponent";
 import "./DetailsModal.css";
-export default class DetailsModal extends React.Component {
+export default class DetailsModal extends ThemmedComponent {
   state = { show: false };
 
+  fetchDetails = () => {
+    this.setState({
+      details: undefined
+    });
+    console.log("downloaded data");
+    plansApi
+      .getPlanDetails({ carrier: this.getTheme(), plan_sku: this.props.sku })
+      .then(result => {
+        this.setState({
+          details: result.franchise
+        });
+        console.log("downloaded data", result);
+      })
+      .catch(reas => {
+        console.error(reas);
+        this.setState({
+          details: reas.toString()
+        });
+      });
+  };
+
   showModal = () => {
-    if (this.props.children) {
-      this.setState({ show: true });
-      setTimeout(() => {
-        this.setState({ openAnimation: true });
-      }, 100);
-    }
+    this.fetchDetails();
+    this.setState({ show: true });
+    setTimeout(() => {
+      this.setState({ openAnimation: true });
+    }, 100);
   };
 
   hideModal = () => {
@@ -29,7 +51,11 @@ export default class DetailsModal extends React.Component {
           title={this.props.title}
           theme={this.props.theme}
         >
-          {this.props.children}
+          <div
+            dangerouslySetInnerHTML={{
+              __html: this.state.details
+            }}
+          ></div>
         </Modal>
         <div className="modal-button" type="button" onClick={this.showModal}>
           {this.props.button}
