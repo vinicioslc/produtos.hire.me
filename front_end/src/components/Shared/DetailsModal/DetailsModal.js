@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import plansApi from "../../../services/plans-api";
 import ThemmedComponent from "../../Base/ThemmedComponent";
+import Shimmer from "../Shimmer/Shimmer";
 import "./DetailsModal.css";
 export default class DetailsModal extends ThemmedComponent {
   state = { show: false };
@@ -9,14 +10,17 @@ export default class DetailsModal extends ThemmedComponent {
     this.setState({
       details: undefined
     });
-    console.log("downloaded data");
+    this.setState({
+      details: undefined
+    });
     plansApi
       .getPlanDetails({ carrier: this.getTheme(), plan_sku: this.props.sku })
       .then(result => {
-        this.setState({
-          details: result.franchise
-        });
-        console.log("downloaded data", result);
+        setTimeout(() => {
+          this.setState({
+            details: result.franchise
+          });
+        }, 500);
       })
       .catch(reas => {
         console.error(reas);
@@ -51,11 +55,16 @@ export default class DetailsModal extends ThemmedComponent {
           title={this.props.title}
           theme={this.props.theme}
         >
-          <div
-            dangerouslySetInnerHTML={{
-              __html: this.state.details
-            }}
-          ></div>
+          {this.state.details ? (
+            <div
+              className={`modal-content`}
+              dangerouslySetInnerHTML={{
+                __html: this.state.details
+              }}
+            ></div>
+          ) : (
+            <Shimmer></Shimmer>
+          )}
         </Modal>
         <div className="modal-button" type="button" onClick={this.showModal}>
           {this.props.button}
@@ -86,9 +95,7 @@ const Modal = ({ title, handleClose, show, children, animate, theme }) => {
         <button
           className={`close-btn primary-text-color ${theme}`}
           onClick={handleClose}
-        >
-          X
-        </button>
+        ></button>
         {children}
       </section>
     </div>

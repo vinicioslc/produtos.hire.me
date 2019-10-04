@@ -34,7 +34,10 @@
   text-align: center;
   /* z-index: -1; */
 }
-
+.modal-content {
+  height: 250px;
+  overflow-y: auto;
+}
 .modal-main {
   position: fixed;
   top: 0;
@@ -72,6 +75,9 @@
   bottom: 100%;
   position: fixed;
 }
+.close-btn::before {
+  content: "X";
+}
 
 .close-btn {
   position: absolute;
@@ -85,4 +91,9 @@
   width: 2em;
   height: 2em;
   border: none;
+  transition: 0.2s ease-in-out;
+  animation-duration: 200ms;
+}
+.close-btn:hover {
+  transform: scale(1.1);
 }

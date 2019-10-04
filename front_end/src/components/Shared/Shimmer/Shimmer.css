@@ -1,0 +1,58 @@
+.shimmer {
+  background: #f6f7f8;
+  background-image: linear-gradient(
+    to right,
+    #f6f7f8 0%,
+    #d1d1d1 20%,
+    #f6f7f8 40%,
+    #f6f7f8 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 800px 104px;
+  display: inline-block;
+  position: relative;
+
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: placeholderShimmer;
+  animation-timing-function: linear;
+}
+
+.shimmer.box {
+  height: 104px;
+  width: 100px;
+}
+
+.shimmer div {
+  display: inline-flex;
+  flex-direction: column;
+  margin-left: 25px;
+  margin-top: 15px;
+  vertical-align: top;
+}
+
+.shimmer.lines {
+  height: 10px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+@keyframes placeholderShimmer {
+  0% {
+    opacity: 0;
+
+    background-position: -468% 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+
+    background-position: 468% 0;
+  }
+}

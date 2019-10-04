@@ -10,7 +10,9 @@ class MissingThemeError extends Error {
 export default class ThemmedComponent extends Component {
   constructor(props) {
     super(props);
-    if (!this.props.theme) throw new MissingThemeError();
+    if (!this.getTheme()) {
+      throw new MissingThemeError();
+    }
   }
   getTheme() {
     return this.props.theme || "";

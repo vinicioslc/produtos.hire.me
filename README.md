@@ -2,7 +2,7 @@
 
 # O que é isso ?
 
-Bem eu acabei me empolgando um pouco já que o teste não foi, restritivo sobre arquitetura, então acabei criando meio que um "cms mutante", que exibe tanto o portal da vivo quanto a claro, porém cada um chama o dado da respectiva api variando somente o css do mesmo, através de uma classe de tema (lembra o wordpress) que é injetada de componente para componente através da arvere (que acarreta em um acomplamento desnecessário), no entanto garantiu uma rapida implementação de layout com reaproveitamento do css.
+Bem eu acabei me empolgando um pouco, e acabei criando um "over-engineer" criando meio que um "cms mutante", que exibe tanto o portal da vivo quanto a claro, porém cada um chama o dado da respectiva api variando somente o css do mesmo, através de uma classe de tema (lembra o wordpress) que é injetada de componente para componente através da arvere (que acarreta em um acomplamento desnecessário), no entanto garantiu uma rapida implementação de layout com reaproveitamento do css.
 
 Não utilizei uma biblioteca de estado já que achei desnecessária pelo tamanho do projeto, optei por utilizar o própio setstate.
 
@@ -26,6 +26,7 @@ Não utilizei uma biblioteca de estado já que achei desnecessária pelo tamanho
 
 # Pontos a melhorar.
 
+- Adicionar aviso para navegadoresnão modernos.
 - Dividir handlers dentre handlers e controllers para separar as regras dentre eles.
 - Desacoplar os dois temas em front ends separadas porém utilizando um repositório com os componentes em comum para serém reutilizados para assim conseguir utilizar um cdn e reduzir tempo de carregamento do site.
 - UX. Adicionar shimmer no carregamento.
