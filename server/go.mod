@@ -8,6 +8,7 @@ require (
 	github.com/go-chi/chi v4.0.2+incompatible
 	github.com/go-chi/cors v1.0.0
 	github.com/go-chi/render v1.0.1
+	github.com/gorilla/mux v1.7.3
 	github.com/joho/godotenv v1.3.0
 	github.com/kr/pretty v0.1.0 // indirect
 	golang.org/x/net v0.0.0-20190926025831-c00fd9afed17 // indirect

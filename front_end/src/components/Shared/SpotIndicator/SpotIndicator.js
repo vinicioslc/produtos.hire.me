@@ -3,10 +3,6 @@ import ThemmedComponent from "../../Base/ThemmedComponent";
 import "./SpotIndicator.css";
 
 export default class EmptyResults extends ThemmedComponent {
-  constructor(props) {
-    super(props);
-  }
-
   showSpot() {
     return this.props.showSpot || false;
   }

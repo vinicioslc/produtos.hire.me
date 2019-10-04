@@ -1,4 +1,4 @@
-import React, { Fragment, Component } from "react";
+import React, { Fragment } from "react";
 import "./Price.css";
 import ThemmedComponent from "../../Base/ThemmedComponent";
 export default class Price extends ThemmedComponent {

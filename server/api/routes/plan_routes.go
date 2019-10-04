@@ -2,55 +2,29 @@ package routes
 
 import (
 	"bemobi-hire/server/config"
+	"bemobi-hire/server/controllers"
 	"bemobi-hire/server/dao"
-	"bemobi-hire/server/helpers"
-	"bemobi-hire/server/models"
-	"net/http"
 
 	"github.com/go-chi/chi"
-	"github.com/go-chi/render"
 )
 
-var pdao = dao.PlansDAO{}
+// planControoller instantiate plan_controller used in this package
 
-// Plans Rotas para api de planos
+// Plans routes that manipulate plans
 func Plans(config config.AppConfig) *chi.Mux {
-	pdao.Server = config.DBHost
-	pdao.Database = config.DBDatabase
-	pdao.Connect()
+	planController := controllers.PlanController{}
+	plansDAO := dao.PlansDAO{
+		Server:   config.DBHost,
+		Database: config.DBDatabase,
+	}
+
+	plansDAO.Connect()
+	planController.InjectDAO(plansDAO)
+
 	router := chi.NewRouter()
-	router.Get("/{carrier}/plans", GetAllCarrierPlans)
-	router.Get("/{carrier}/plans/{sku}/details", GetPlanDetails)
+	router.Get("/{carrier}/plans", planController.GetAllCarrierPlans)
+	router.Get("/{carrier}/plans/{sku}/details", planController.GetPlanDetails)
+	router.Post("/{carrier}/plans", planController.InsertPlanFromCarrier)
+	router.Put("/{carrier}/plans/{sku}", planController.UpdatePlanBySKU)
 	return router
-}
-
-// GetAllCarrierPlans Return all plans from given carrier
-func GetAllCarrierPlans(w http.ResponseWriter, r *http.Request) {
-	carrier := chi.URLParam(r, "carrier")
-
-	plans, err := pdao.ListPlansByCarrier(carrier)
-	if err != nil {
-		helpers.RespondWithError(w, 500, err.Error())
-	}
-	if plans == nil {
-		helpers.RespondwithJSON(w, 200, ([]models.Plan{}))
-	} else {
-		render.JSON(w, r, plans)
-	}
-}
-
-// GetPlanDetails Return Plan Details from given carrier and sku
-func GetPlanDetails(w http.ResponseWriter, r *http.Request) {
-	carrier := chi.URLParam(r, "carrier")
-	sku := chi.URLParam(r, "sku")
-	planDetails, err := pdao.GetPlanByCarrierAndSku(carrier, sku)
-
-	if planDetails.PlanSKU == "" && err == nil {
-		helpers.RespondWithError(w, 404, "Plan not found")
-	}
-	if err != nil {
-		helpers.RespondWithError(w, 500, err.Error())
-	}
-
-	render.JSON(w, r, planDetails.PlanMoreDetails)
 }

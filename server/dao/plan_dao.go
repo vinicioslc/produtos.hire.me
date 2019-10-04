@@ -11,6 +11,7 @@ import (
 
 // PlansDAO Contains all database manipulation relative to Plans
 type PlansDAO struct {
+	IPlansDAO
 	Server   string
 	Database string
 }
@@ -41,9 +42,16 @@ func (m *PlansDAO) ListPlansByCarrier(carrier string) ([]models.Plan, error) {
 	return plans, err
 }
 
-// InserPlan insert a new plan in database creating one.
-func (m *PlansDAO) InserPlan(plan models.Plan) error {
+// InsertPlanIntoCarrier insert a new plan in database creating one.
+func (m *PlansDAO) InsertPlanIntoCarrier(carrier string, plan models.DatabasePlan, result *models.DatabasePlan) error {
 	err := db.C(PLANCOLLECTION).Insert(&plan)
+	if err != nil {
+		return err
+	}
+
+	err = db.C(PLANCOLLECTION).Find(bson.M{
+		"plan_sku": plan.PlanSKU,
+	}).One(&result)
 	return err
 }
 
@@ -66,13 +74,21 @@ func (m *PlansDAO) DeleteByID(id string) error {
 }
 
 // DeleteBySku Delete a plan by Sku and return count removed
-func (m *PlansDAO) DeleteBySku(sku string) (int, error) {
-	info, err := db.C(PLANCOLLECTION).RemoveAll(bson.M{"plan_sku": sku})
-	return info.Removed, err
+func (m *PlansDAO) DeleteBySku(sku string) error {
+	err := db.C(PLANCOLLECTION).Remove(bson.M{"plan_sku": sku})
+	return err
 }
 
 // UpdateByID Updates a plan by document id
 func (m *PlansDAO) UpdateByID(id string, plan models.DatabasePlan) error {
 	err := db.C(PLANCOLLECTION).UpdateId(bson.ObjectIdHex(id), &plan)
+	return err
+}
+
+//UpdateBySku Updates a plan by given sku
+func (m *PlansDAO) UpdateBySku(sku string, plan models.DatabasePlan) error {
+	err := db.C(PLANCOLLECTION).Update(bson.M{
+		"plan_sku": sku,
+	}, &plan)
 	return err
 }

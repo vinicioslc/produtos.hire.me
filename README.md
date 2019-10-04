@@ -1,49 +1,44 @@
-# hire.me
+# PLANS API
 
+# Oque é isso ?
 
-## Aí você teve uma ideia...
+Bem eu acabei me empolgando um pouco já que o teste não foi, restritivo sobre arquitetura, então acabei criando um cms mutante que exibe tanto o portal da vivo quanto a claro, porém cada um chama o dado da respectiva api variando somente o css do mesmo, através de uma classe de tema (lembra o wordpress) que é injetada de componente para componente através da arvere (que acarreta em um acomplamento desnecessário), no entanto garantiu uma rapida implementação de layout com reaproveitamento do css.
 
-Imagine que você conseguiu: 
+Não utilizei uma biblioteca de estado já que achei desnecessária pelo tamanho do projeto, optei por utilizar o própio setstate.
 
-* uma parceria com grandes lojas internacionais online de venda de produtos.
-* uma parceria com as grandes operadoras de telefonia do planeta.
-* milhões de assinantes dispostos a pagar uma assinatura para utilizar conseguir comprar produtos com bons descontos.
+# Para inicializar o servidor local
 
-Com isso, você decide criar o Clube de descontos: um serviço de assinatura, onde o usuário paga um pequeno valor recorrente para ter acesso a centenas de descontos que, se comprados individualmente, custariam um valor muito maior do que a assinatura no serviço de descontos. O assinante paga o valor direto na conta de telefone da operadora, sem precisar de cartão de crédito.
+1. Utilize o script docker para instanciar o servidor em mongodb
 
-Acho que você teve uma boa ideia, hein? =)
+2. Crie um novo `.env` usando o `.env.example` de base.
 
-## Mãos à obra
+3. Execute `sh reset-server.sh` na pasta principal, ele irá :
 
-Ok, deu pra ver que você é fera nos negócios, mas chegou a hora de programar!
+   1. Entrar na pasta `$ ./migrations` e executar `go run main.go down && go run main.go up` assim resetando o banco de dados com as migrations de preços iniciais.
 
-Serão várias aplicações-cliente (sites ou apps), uma por operadora, acessando uma API que exibe as lojas e os descontos.
+   2. Voltar para pasta server e inicializar o servidor `go run main.go`.
 
-Simples assim? Quase... 
+4. Utilize-a
 
-Aí vão algumas considerações:
+# Para inicializar Front End
 
-* Cada operadora tem seus descontos exclusivos. Por isso, cada loja pode exibir descontos diferentes.
-* Cada operadora pode ser separada por path. Exemplo: http://localhost:8080/claro, http://localhost:8080/vivo, etc
+1. Entre na pasta front_end e execute `yarn dev` ele irá instalar os pacotes e iniciar o front-end em `localhost:3000`.
 
+# Pontos a melhorar.
 
-## Requisitos
+    - UX. Desacoplar os dois temas em front ends separadas porém utilizando um repositório com os componentes em comum para serém reutilizados para assim conseguir utilizar um cdn e reduzir tempo de carregamento do site
+    - UX. Adicionar shimmer no carregamento.
+    - Adicionar casos nos testes unitários.
+    - Adicionar testes de integração.
 
-Ao abrir a página, o usuário deve visualizar uma listagem com os descontos disponíveis por operadora (e também suas marcas). Ao clicar num item da listagem, o usuário deve visualizar a tela de detalhes da oferta em questão.
+# Vulnerabilidades.
 
-backend:
+    - XSS (Cross Site Scripting) na página de detalhes possui uma vulnerabilidade ao injetar html no content de detalhes.
 
-O paradigma de banco de dados fica a seu gosto: SQL ou NoSQL. A linguagem de programação também (Java, Python, NodeJs, Golang, Kotlin, etc), desde que o resultado final seja um boa API.
+# Considerações finais
 
+Eu ainda não tinha feito um hello world com golang, e só criei na vida um hello world com reactjs não fazia ideia do quão simples as duas tecnologias.
 
-frontend:
+GOLANG é incrível mto simples estruturar o código e a forma com que ele trata erros é bem interessante por não se ter um `try catch` o esquema de verificar `err` em cada function funciona mto bem de acordo com a sintaxe dele, uma ótima escolha para microserviços.
 
-Você pode criar suas páginas utilizando o framework que quiser. React, vue, angular, etc.
-
-
-## Pontos importantes
-Documentação, diagramas, testes, automatização de ambiente, etc são muito bem vindos e avaliados.
-
-
-
-
+Eu sei que fiz besteira com esse CMS loko ehehehe.
