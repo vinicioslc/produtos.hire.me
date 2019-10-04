@@ -2,8 +2,8 @@ package routes
 
 import (
 	"bemobi-hire/server/config"
-	"bemobi-hire/server/controllers"
 	"bemobi-hire/server/dao"
+	"bemobi-hire/server/handlers"
 
 	"github.com/go-chi/chi"
 )
@@ -12,7 +12,7 @@ import (
 
 // Plans routes that manipulate plans
 func Plans(config config.AppConfig) *chi.Mux {
-	planController := controllers.PlanController{}
+	planController := handlers.PlanController{}
 	plansDAO := dao.PlansDAO{
 		Server:   config.DBHost,
 		Database: config.DBDatabase,

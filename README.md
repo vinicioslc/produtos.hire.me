@@ -1,8 +1,8 @@
 # PLANS API
 
-# Oque é isso ?
+# O que é isso ?
 
-Bem eu acabei me empolgando um pouco já que o teste não foi, restritivo sobre arquitetura, então acabei criando um cms mutante que exibe tanto o portal da vivo quanto a claro, porém cada um chama o dado da respectiva api variando somente o css do mesmo, através de uma classe de tema (lembra o wordpress) que é injetada de componente para componente através da arvere (que acarreta em um acomplamento desnecessário), no entanto garantiu uma rapida implementação de layout com reaproveitamento do css.
+Bem eu acabei me empolgando um pouco já que o teste não foi, restritivo sobre arquitetura, então acabei criando meio que um "cms mutante", que exibe tanto o portal da vivo quanto a claro, porém cada um chama o dado da respectiva api variando somente o css do mesmo, através de uma classe de tema (lembra o wordpress) que é injetada de componente para componente através da arvere (que acarreta em um acomplamento desnecessário), no entanto garantiu uma rapida implementação de layout com reaproveitamento do css.
 
 Não utilizei uma biblioteca de estado já que achei desnecessária pelo tamanho do projeto, optei por utilizar o própio setstate.
 
@@ -26,19 +26,20 @@ Não utilizei uma biblioteca de estado já que achei desnecessária pelo tamanho
 
 # Pontos a melhorar.
 
-    - UX. Desacoplar os dois temas em front ends separadas porém utilizando um repositório com os componentes em comum para serém reutilizados para assim conseguir utilizar um cdn e reduzir tempo de carregamento do site
-    - UX. Adicionar shimmer no carregamento.
-    - Adicionar casos nos testes unitários.
-    - Adicionar testes de integração.
+- Dividir handlers dentre handlers e controllers para separar as regras dentre eles.
+- Desacoplar os dois temas em front ends separadas porém utilizando um repositório com os componentes em comum para serém reutilizados para assim conseguir utilizar um cdn e reduzir tempo de carregamento do site.
+- UX. Adicionar shimmer no carregamento.
+- Adicionar mais casos nos testes unitários.
+- Escrever testes de handlers utilizando [o guia](https://blog.questionable.services/article/testing-http-handlers-go/).
 
 # Vulnerabilidades.
 
-    - XSS (Cross Site Scripting) na página de detalhes possui uma vulnerabilidade ao injetar html no content de detalhes.
+- XSS (Cross Site Scripting) na página de detalhes possui uma vulnerabilidade ao injetar html no content de detalhes.
 
 # Considerações finais
 
 Eu ainda não tinha feito um hello world com golang, e só criei na vida um hello world com reactjs não fazia ideia do quão simples as duas tecnologias.
 
-GOLANG é incrível mto simples estruturar o código e a forma com que ele trata erros é bem interessante por não se ter um `try catch` o esquema de verificar `err` em cada function funciona mto bem de acordo com a sintaxe dele, uma ótima escolha para microserviços.
+GOLANG é incrível mto simples estruturar o código e a forma com que ele trata erros é bem interessante por não se ter um `try catch` o esquema de verificar `err` em cada function e passando para cima casa bem com a sintaxe dele, uma ótima escolha para microserviços.
 
-Eu sei que fiz besteira com esse CMS loko ehehehe.
+Eu sei que fiz besteira criando esse monstrinho ehehehe.

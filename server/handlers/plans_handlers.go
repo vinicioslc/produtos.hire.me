@@ -1,4 +1,4 @@
-package controllers
+package handlers
 
 import (
 	"bemobi-hire/server/dao"
@@ -26,7 +26,7 @@ func (ctrl *PlanController) GetAllCarrierPlans(w http.ResponseWriter, r *http.Re
 
 	carrier := chi.URLParam(r, "carrier")
 	if carrier == "" {
-		serverHelpers.RespondWithError(w, 400, "Carrier missing argument")
+		serverHelpers.RespondWithError(w, 400, "Missing carrier argument")
 	}
 	plans, err := ctrl.planDAO.ListPlansByCarrier(carrier)
 	if err != nil {
