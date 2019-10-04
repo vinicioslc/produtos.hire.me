@@ -32,6 +32,7 @@ Não utilizei uma biblioteca de estado já que achei desnecessária pelo tamanho
 - UX. Adicionar shimmer no carregamento.
 - Adicionar mais casos nos testes unitários.
 - Escrever testes de handlers utilizando [o guia](https://blog.questionable.services/article/testing-http-handlers-go/).
+- Rotas para atualizar recursos da api.
 
 # Vulnerabilidades.
 

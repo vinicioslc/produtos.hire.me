@@ -1,0 +1,133 @@
+{
+  "info": {
+    "_postman_id": "70f8e29d-0a6c-488c-b09b-cee959d22a2c",
+    "name": "Plan",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get All Plans",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:8080/v1/carrier/:carrier/plans",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["v1", "carrier", ":carrier", "plans"],
+          "variable": [
+            {
+              "key": "carrier",
+              "value": "claro"
+            }
+          ]
+        },
+        "description": "Returns all plans from an especified carrier"
+      },
+      "response": []
+    },
+    {
+      "name": "Get Plan Details",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:8080/v1/carrier/:carrier/plans/:sku/details",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["v1", "carrier", ":carrier", "plans", ":sku", "details"],
+          "variable": [
+            {
+              "key": "carrier",
+              "value": "claro"
+            },
+            {
+              "key": "sku",
+              "value": "WEB_CLARO100MB"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Insert a new plan",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"id\": \"5d96670902eb8138d050cc7d\",\n    \"plan_sku\": \"NOVOPLANOCLARO 150 MB\",\n    \"plan_spotted\": false,\n    \"plan_carrier\": \"claro\",\n    \"plan_title\": \"150 MB\",\n    \"plan_details\": \"Por dia\",\n    \"plan_small_words\": \"sem renovação automática\",\n    \"plan_price\": 1.99,\n    \"plan_limit_mbytes\": 150,\n    \"plan_limit_days\": 1,\n    \"plan_highlights\": [\n        {\n            \"h_icon\": \"\",\n            \"h_title\": \"+10 minutos de ligações para outras operadoras*\",\n            \"h_description\": \"\"\n        }\n    ],\n    \"plan_advantages\": [\n        {\n            \"a_title\": \"Minutos ilimitados \",\n            \"a_description\": \"em ligações locais para celulares de outras operadoras\"\n        }\n    ],\n    \"plan_more_details\": [\n        {\n            \"franchise\": \"Prezão R$1,99 / dia\\n \\n\\t\\t\\t\\t\\tServiços inclusos:\\n\\t\\t\\t\\t\\tLigações ilimitadas para Claro de todo o Brasil, usando o 21.\\n\\t\\t\\t\\t\\t10 minutos de ligações para outras operadoras de todo o Brasil, usando o 21.*\\n\\t\\t\\t\\t\\t* Benefício válido apenas para chamadas feitas dentro da área de registro, DDD da linha do cliente.\\n\\t\\t\\t\\t\\t100MB para navegar na internet 4.5G da Claro.\\n\\t\\t\\t\\t\\tWhatsApp para navegar ilimitado. Envie e receba mensagens, fotos, vídeos e áudios através do aplicativo.\\n\\t\\t\\t\\t\\tChamadas de voz e vídeo (VOIP) e todo acesso a conteúdo externos (links recebidos) que saiam do WhatsApp não estão inclusos no benefício e descontarão da franquia de internet.\\n\\t\\t\\t\\t\\tSMS ilimitado para Claro.\\n\\t\\t\\t\\t\\t15 SMS para outras operadoras.\\n\\t\\t\\t\\t\\t \\n\\t\\t\\t\\t\\tComo contratar: se você já é cliente envie um SMS com a palavra DIA para 2006 e aproveite!\",\n            \"additional_info\": \"\",\n            \"regulation\": \"\"\n        }\n    ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8080/v1/carrier/:carrier/plans",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["v1", "carrier", ":carrier", "plans"],
+          "variable": [
+            {
+              "key": "carrier",
+              "value": "claro"
+            }
+          ]
+        },
+        "description": "Insert a plan into a given carrier"
+      },
+      "response": []
+    },
+    {
+      "name": "Update a plan details from a given url",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n        \"id\": \"5d96864c02eb810a7c3fafb9\",\r\n        \"plan_sku\": \"WEB_CLARO100MB\",\r\n        \"plan_spotted\": false,\r\n        \"plan_carrier\": \"claro\",\r\n        \"plan_title\": \"100 MB\",\r\n        \"plan_details\": \"Por dia\",\r\n        \"plan_small_words\": \"com renovação loka\",\r\n        \"plan_price\": 1.99,\r\n        \"plan_highlights\": [\r\n            {\r\n                \"h_icon\": \"\",\r\n                \"h_title\": \"+10 minutos de ligações para outras operadoras*\",\r\n                \"h_description\": \"\"\r\n            }\r\n        ],\r\n        \"plan_advantages\": [\r\n            {\r\n                \"a_title\": \"Minutos ilimitados \",\r\n                \"a_description\": \"em ligações locais para celulares de outras operadoras\"\r\n            }\r\n        ],\r\n        \"plan_limit_mbytes\": 5000,\r\n        \"plan_limit_days\": 1\r\n    }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8080/v1/carrier/:carrier/plans/:sku",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["v1", "carrier", ":carrier", "plans", ":sku"],
+          "variable": [
+            {
+              "key": "carrier",
+              "value": "claro"
+            },
+            {
+              "key": "sku",
+              "value": "WEB_CLARO100MB"
+            }
+          ]
+        },
+        "description": "Insert a plan into a given carrier"
+      },
+      "response": []
+    }
+  ],
+  "protocolProfileBehavior": {}
+}
