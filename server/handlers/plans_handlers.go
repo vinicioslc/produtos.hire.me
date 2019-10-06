@@ -45,7 +45,7 @@ func (ctrl *PlanController) GetPlanDetails(w http.ResponseWriter, r *http.Reques
 
 	carrier := chi.URLParam(r, "carrier")
 	sku := chi.URLParam(r, "sku")
-	planDetails, err := ctrl.planDAO.GetPlanByCarrierAndSku(carrier, sku)
+	planDetails, err := ctrl.planDAO.GetDatabasePlanByCarrierSKU(carrier, sku)
 
 	if planDetails.PlanSKU == "" && (err.Error() == "not found" || err == nil) {
 		serverHelpers.RespondWithError(w, http.StatusNotFound, "Plan not found")

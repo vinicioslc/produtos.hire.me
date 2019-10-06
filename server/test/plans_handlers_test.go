@@ -62,3 +62,45 @@ func TestGetPlansByCarrier(t *testing.T) {
 	}
 	t.Logf("Finished ANOYING CARRIER (with %v count)", finalCount)
 }
+
+func TestGettingPlanDetails(t *testing.T) {
+	t.Logf("Started TestGettingPlanDetails")
+	var plansDao = plans_test.FakePlansDAO{}
+	var ctrl = handlers.PlanController{}
+	ctrl.InjectDAO(
+		&plansDao,
+	)
+	w := mock_http.ResponseWriter{}
+	r := httptest.NewRequest("GET", "/v1/carrier/{carrier}/plans/{sku}/details", nil)
+
+	// TEST WITH CLARO
+	rctx := chi.NewRouteContext()
+	rctx.URLParams.Add("carrier", "claro")
+	rctx.URLParams.Add("sku", "WEB_CLARO1GB")
+
+	r = r.WithContext(context.WithValue(r.Context(), chi.RouteCtxKey, rctx))
+
+	ctrl.GetPlanDetails(&w, r)
+	jsonBody := w.GetBodyJSON()
+
+	if jsonBody["franchise"] != "Franquia Loka" {
+		t.Error("Wont returned [ franchise : Franquia Loka ] in plan details for sku WEB_CLARO1GB")
+	}
+	t.Logf("Finished TestGettingPlanDetails (with %v == franchise)", jsonBody["franchise"])
+
+	// TEST WITH VIVO
+	rctx = chi.NewRouteContext()
+	rctx.URLParams.Add("carrier", "vivo")
+	rctx.URLParams.Add("sku", "WEB_VIVO100MB")
+
+	r = r.WithContext(context.WithValue(r.Context(), chi.RouteCtxKey, rctx))
+
+	ctrl.GetPlanDetails(&w, r)
+	jsonBody = w.GetBodyJSON()
+
+	if jsonBody["franchise"] != "Franquia vivo" {
+		t.Errorf("Wont returned [ franchise : %v ] in plan details for sku WEB_CLARO1GB", jsonBody["franchise"])
+	}
+	t.Logf("Finished TestGettingPlanDetails getting plan details correctly")
+
+}

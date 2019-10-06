@@ -7,7 +7,7 @@ import (
 // IPlansDAO Contains all database manipulation relative to Plans
 type IPlansDAO interface {
 	Connect() IPlansDAO
-	GetPlanByCarrierAndSku(Carrier string, Sku string) (models.DatabasePlan, error)
+	GetDatabasePlanByCarrierSKU(Carrier string, Sku string) (models.DatabasePlan, error)
 	ListPlansByCarrier(carrier string) ([]models.Plan, error)
 	InsertPlanIntoCarrier(carrier string, plan models.DatabasePlan, result *models.DatabasePlan) error
 	DeleteByID(id string) error

@@ -55,8 +55,8 @@ func (m *PlansDAO) InsertPlanIntoCarrier(carrier string, plan models.DatabasePla
 	return err
 }
 
-// GetPlanByCarrierAndSku Returns an plan details by sku and carrier
-func (m *PlansDAO) GetPlanByCarrierAndSku(Carrier string, Sku string) (models.DatabasePlan, error) {
+// GetDatabasePlanByCarrierSKU Returns an plan details by sku and carrier
+func (m *PlansDAO) GetDatabasePlanByCarrierSKU(Carrier string, Sku string) (models.DatabasePlan, error) {
 	var plan models.DatabasePlan
 
 	err := db.C(PLANCOLLECTION).Find(bson.M{
