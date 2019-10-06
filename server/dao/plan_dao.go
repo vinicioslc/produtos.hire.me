@@ -24,7 +24,7 @@ const (
 )
 
 // Connect Conecta o DAO ao nosso banco de dados.
-func (m *PlansDAO) Connect() *PlansDAO {
+func (m *PlansDAO) Connect() IPlansDAO {
 	session, err := mgo.Dial(m.Server)
 	if err != nil {
 		log.Fatal(err)

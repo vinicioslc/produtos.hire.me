@@ -12,11 +12,11 @@ import (
 
 // PlanController Contains all logic about plans
 type PlanController struct {
-	planDAO dao.PlansDAO
+	planDAO dao.IPlansDAO
 }
 
 // InjectDAO Injects the dao instance in PlanController
-func (ctrl *PlanController) InjectDAO(dao dao.PlansDAO) *PlanController {
+func (ctrl *PlanController) InjectDAO(dao dao.IPlansDAO) *PlanController {
 	ctrl.planDAO = dao
 	return ctrl
 }

@@ -1,4 +1,4 @@
-package test
+package plans_test
 
 import (
 	"bemobi-hire/server/dao"
@@ -14,38 +14,39 @@ type FakePlansDAO struct {
 }
 
 // Connect Conecta o DAO ao nosso banco de dados.
-func (m *FakePlansDAO) Connect() *FakePlansDAO {
+func (m *FakePlansDAO) Connect() dao.IPlansDAO {
 	return m
 }
 
 // ListPlansByCarrier list stored plans by carrier
 func (m *FakePlansDAO) ListPlansByCarrier(carrier string) ([]models.Plan, error) {
 
-	return []models.Plan{models.Plan{
-		ID:          bson.NewObjectId(),
-		PlanCarrier: carrier,
-		PlanSKU:     "WEB_CLARO100MB",
-		PlanHighlights: []models.PlanHighlights{
-			{
-				Title: "+10 minutos de ligações para outras operadoras*",
-			},
-		},
-		PlanAdvantages: []models.PlanAdvantage{
-			{
-				"Minutos ilimitados ",
-				"em ligações locais para celulares de outras operadoras",
-			},
-		},
-		PlanTitle:       "100 MB",
-		PlanDetails:     "Por dia",
-		PlanSmallWords:  "sem renovação automática",
-		PlanLimitMbytes: 5000,
-		PlanLimitDays:   1,
-		PlanPrice:       1.990,
-	},
+	plans := []models.Plan{
 		models.Plan{
 			ID:          bson.NewObjectId(),
-			PlanCarrier: carrier,
+			PlanCarrier: "vivo",
+			PlanSKU:     "WEB_CLARO100MB",
+			PlanHighlights: []models.PlanHighlights{
+				{
+					Title: "+10 minutos de ligações para outras operadoras*",
+				},
+			},
+			PlanAdvantages: []models.PlanAdvantage{
+				{
+					"Minutos ilimitados ",
+					"em ligações locais para celulares de outras operadoras",
+				},
+			},
+			PlanTitle:       "100 MB",
+			PlanDetails:     "Por dia",
+			PlanSmallWords:  "sem renovação automática",
+			PlanLimitMbytes: 5000,
+			PlanLimitDays:   1,
+			PlanPrice:       1.990,
+		},
+		models.Plan{
+			ID:          bson.NewObjectId(),
+			PlanCarrier: "claro",
 			PlanSKU:     "WEB_CLARO1GB",
 			Spotted:     true,
 			PlanHighlights: []models.PlanHighlights{
@@ -68,7 +69,7 @@ func (m *FakePlansDAO) ListPlansByCarrier(carrier string) ([]models.Plan, error)
 		},
 		models.Plan{
 			ID:          bson.NewObjectId(),
-			PlanCarrier: carrier,
+			PlanCarrier: "claro",
 			PlanSKU:     "WEB_CLARO5GB",
 			PlanHighlights: []models.PlanHighlights{
 				{
@@ -91,7 +92,16 @@ func (m *FakePlansDAO) ListPlansByCarrier(carrier string) ([]models.Plan, error)
 			PlanLimitMbytes: 1000,
 			PlanLimitDays:   7,
 			PlanPrice:       14.99,
-		}}, nil
+		},
+	}
+
+	var filtered = []models.Plan{}
+	for _, element := range plans {
+		if element.PlanCarrier == carrier {
+			filtered = append(filtered, element)
+		}
+	}
+	return filtered, nil
 }
 
 // InsertPlanIntoCarrier insert a new plan in database creating one.

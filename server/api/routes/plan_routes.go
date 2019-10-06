@@ -18,8 +18,7 @@ func Plans(config config.AppConfig) *chi.Mux {
 		Database: config.DBDatabase,
 	}
 
-	plansDAO.Connect()
-	planController.InjectDAO(plansDAO)
+	planController.InjectDAO(plansDAO.Connect())
 
 	router := chi.NewRouter()
 	router.Get("/{carrier}/plans", planController.GetAllCarrierPlans)
