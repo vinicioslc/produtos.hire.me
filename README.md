@@ -1,8 +1,8 @@
 # PLANS API
 
-# O que é isso ?
+# O que é ?
 
-Bem eu acabei me empolgando um pouco, e acabei criando um "over-engineer" criando meio que um "cms mutante", que exibe tanto o portal da vivo quanto a claro, porém cada um chama o dado da respectiva api variando somente o css do mesmo, através de uma classe de tema (lembra o wordpress) que é injetada de componente para componente através da arvere (que acarreta em um acomplamento desnecessário), no entanto garantiu uma rapida implementação de layout com reaproveitamento do css.
+Bem eu acabei me empolgando um pouco, e acabei fazendo "over-engineering" e criando meio que um "cms mutante", que exibe tanto o portal da vivo quanto a claro, porém cada um chama o dado da respectiva api variando somente o css do mesmo, através de uma classe de tema (lembra o wordpress) que é injetada de componente para componente através da arvere (que acarreta em um acomplamento desnecessário), no entanto garantiu uma rapida implementação de layout com reaproveitamento do css.
 
 Não utilizei uma biblioteca de estado já que achei desnecessária pelo tamanho do projeto, optei por utilizar o própio setstate.
 
